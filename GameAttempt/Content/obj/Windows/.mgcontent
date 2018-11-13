@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Profile>Reach</Profile>
+  <Platform>Windows</Platform>
+  <Config />
+  <SourceFiles>
+    <File>C:/Users/thats/OneDrive/Documents/College Stuff/GameAttempt/GameAttempt/Content/Sprites/Mike.png</File>
+    <File>C:/Users/thats/OneDrive/Documents/College Stuff/GameAttempt/GameAttempt/Content/Sprites/Spike.png</File>
+    <File>C:/Users/thats/OneDrive/Documents/College Stuff/GameAttempt/GameAttempt/Content/Sprites/Floor.png</File>
+  </SourceFiles>
+</SourceFileCollection>

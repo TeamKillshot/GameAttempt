@@ -1,0 +1,30 @@
+C:\Users\thats\OneDrive\Documents\College Stuff\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Content\Sprites\Mike.xnb
+C:\Users\thats\OneDrive\Documents\College Stuff\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Content\Sprites\Spike.xnb
+C:\Users\thats\OneDrive\Documents\College Stuff\GameAttempt\GameAttempt\bin\Windows\x86\Debug\GameAttempt.exe
+C:\Users\thats\OneDrive\Documents\College Stuff\GameAttempt\GameAttempt\bin\Windows\x86\Debug\GameAttempt.pdb
+C:\Users\thats\OneDrive\Documents\College Stuff\GameAttempt\GameAttempt\bin\Windows\x86\Debug\FarseerPhysics MonoGame.dll
+C:\Users\thats\OneDrive\Documents\College Stuff\GameAttempt\GameAttempt\bin\Windows\x86\Debug\MonoGame.Framework.dll
+C:\Users\thats\OneDrive\Documents\College Stuff\GameAttempt\GameAttempt\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll
+C:\Users\thats\OneDrive\Documents\College Stuff\GameAttempt\GameAttempt\bin\Windows\x86\Debug\SharpDX.dll
+C:\Users\thats\OneDrive\Documents\College Stuff\GameAttempt\GameAttempt\bin\Windows\x86\Debug\SharpDX.XAudio2.dll
+C:\Users\thats\OneDrive\Documents\College Stuff\GameAttempt\GameAttempt\bin\Windows\x86\Debug\SharpDX.DXGI.dll
+C:\Users\thats\OneDrive\Documents\College Stuff\GameAttempt\GameAttempt\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll
+C:\Users\thats\OneDrive\Documents\College Stuff\GameAttempt\GameAttempt\bin\Windows\x86\Debug\SharpDX.Direct2D1.dll
+C:\Users\thats\OneDrive\Documents\College Stuff\GameAttempt\GameAttempt\bin\Windows\x86\Debug\SharpDX.XInput.dll
+C:\Users\thats\OneDrive\Documents\College Stuff\GameAttempt\GameAttempt\bin\Windows\x86\Debug\SharpDX.Direct3D9.dll
+C:\Users\thats\OneDrive\Documents\College Stuff\GameAttempt\GameAttempt\bin\Windows\x86\Debug\FarseerPhysics MonoGame.pdb
+C:\Users\thats\OneDrive\Documents\College Stuff\GameAttempt\GameAttempt\bin\Windows\x86\Debug\MonoGame.Framework.xml
+C:\Users\thats\OneDrive\Documents\College Stuff\GameAttempt\GameAttempt\bin\Windows\x86\Debug\SharpDX.MediaFoundation.xml
+C:\Users\thats\OneDrive\Documents\College Stuff\GameAttempt\GameAttempt\bin\Windows\x86\Debug\SharpDX.xml
+C:\Users\thats\OneDrive\Documents\College Stuff\GameAttempt\GameAttempt\bin\Windows\x86\Debug\SharpDX.XAudio2.xml
+C:\Users\thats\OneDrive\Documents\College Stuff\GameAttempt\GameAttempt\bin\Windows\x86\Debug\SharpDX.DXGI.xml
+C:\Users\thats\OneDrive\Documents\College Stuff\GameAttempt\GameAttempt\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
+C:\Users\thats\OneDrive\Documents\College Stuff\GameAttempt\GameAttempt\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
+C:\Users\thats\OneDrive\Documents\College Stuff\GameAttempt\GameAttempt\bin\Windows\x86\Debug\SharpDX.XInput.xml
+C:\Users\thats\OneDrive\Documents\College Stuff\GameAttempt\GameAttempt\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
+C:\Users\thats\OneDrive\Documents\College Stuff\GameAttempt\GameAttempt\obj\x86\Debug\GameAttempt.csprojAssemblyReference.cache
+C:\Users\thats\OneDrive\Documents\College Stuff\GameAttempt\GameAttempt\obj\x86\Debug\GameAttempt.csproj.CoreCompileInputs.cache
+C:\Users\thats\OneDrive\Documents\College Stuff\GameAttempt\GameAttempt\obj\x86\Debug\GameAttempt.csproj.CopyComplete
+C:\Users\thats\OneDrive\Documents\College Stuff\GameAttempt\GameAttempt\obj\x86\Debug\GameAttempt.exe
+C:\Users\thats\OneDrive\Documents\College Stuff\GameAttempt\GameAttempt\obj\x86\Debug\GameAttempt.pdb
+C:\Users\thats\OneDrive\Documents\College Stuff\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Content\Sprites\Floor.xnb
