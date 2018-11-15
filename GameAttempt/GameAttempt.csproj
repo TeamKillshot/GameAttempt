@@ -59,6 +59,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Sprites\Floor.png" />
+    <Content Include="Content\Sprites\Mike.png" />
+    <Content Include="Content\Sprites\Spike.png" />
     <Content Include="Icon.ico" />
   </ItemGroup>
   <ItemGroup>

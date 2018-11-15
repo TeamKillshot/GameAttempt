@@ -1,5 +1,5 @@
 ﻿using Components;
-using FarseerPhysics.Collision.Shapes;
+using FarseerPhysics.Collision;
 using FarseerPhysics.Dynamics;
 using FarseerPhysics.Factories;
 using GameAttempt.Components;
@@ -49,9 +49,13 @@ namespace GameAttempt
         protected override void LoadContent()
         {
             Vector2 size = GraphicsDevice.Viewport.Bounds.Size.ToVector2();
-            Vector2 pos = size - new Vector2(0, size.Y - 100);
+            Vector2 pos = size - new Vector2(size.X, size.Y - 620);
 
-            floor = BodyFactory.CreateRectangle(new World(Vector2.Zero), size.X, size.Y, 0f, pos);
+            floor = BodyFactory.CreateRectangle(new World(Vector2.Zero), size.X, size.Y-700, 1f, pos);
+            floor.BodyType = BodyType.Kinematic;
+            floor.IsStatic = true;
+            floor.CollisionCategories = Category.Cat1;
+            floor.CollidesWith = Category.All;
 
             floorSprite = Content.Load<Texture2D>("Sprites/Floor");
             floorPos.X = floor.Position.X;

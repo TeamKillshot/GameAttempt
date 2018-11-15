@@ -4,8 +4,8 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/thats/OneDrive/Documents/College Stuff/GameAttempt/GameAttempt/Content/Sprites/Mike.png</File>
-    <File>C:/Users/thats/OneDrive/Documents/College Stuff/GameAttempt/GameAttempt/Content/Sprites/Spike.png</File>
-    <File>C:/Users/thats/OneDrive/Documents/College Stuff/GameAttempt/GameAttempt/Content/Sprites/Floor.png</File>
+    <File>C:/Users/thats/Source/Repos/GameAttempt/GameAttempt/Content/Sprites/Mike.png</File>
+    <File>C:/Users/thats/Source/Repos/GameAttempt/GameAttempt/Content/Sprites/Spike.png</File>
+    <File>C:/Users/thats/Source/Repos/GameAttempt/GameAttempt/Content/Sprites/Floor.png</File>
   </SourceFiles>
 </SourceFileCollection>

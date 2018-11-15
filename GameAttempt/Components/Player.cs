@@ -1,6 +1,7 @@
 ﻿using Components;
 using FarseerPhysics.Dynamics;
 using FarseerPhysics.Factories;
+using FarseerPhysics.Collision;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -46,7 +47,10 @@ namespace GameAttempt.Components
             player.Position = new Vector2(200, 200);
             player.Body = BodyFactory.CreateCircle(world, 1, 1);
             player.Body.Restitution = 1f;
+            player.Body.Mass = 1f;
             player.Body.BodyType = BodyType.Dynamic;
+            //player.Body.CollisionCategories = Category.Cat5;
+            //player.Body.CollidesWith = Category.Cat1;
 
             player.Position.X = Body.Position.X;
             player.Position.Y = Body.Position.Y;
