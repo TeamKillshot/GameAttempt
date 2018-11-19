@@ -18,6 +18,7 @@ namespace GameAttempt
         Body floor;
         Texture2D floorSprite;
         Vector2 floorPos;
+        Rectangle floorBounds;
 
         //World world;
         //float gravity = 9.8f;
@@ -51,11 +52,12 @@ namespace GameAttempt
             Vector2 size = GraphicsDevice.Viewport.Bounds.Size.ToVector2();
             Vector2 pos = size - new Vector2(size.X, size.Y - 620);
 
-            floor = BodyFactory.CreateRectangle(new World(Vector2.Zero), size.X, size.Y-700, 1f, pos);
+            floor = BodyFactory.CreateRectangle(new World(Vector2.Zero), size.X, size.Y-680, 1f, pos);
             floor.BodyType = BodyType.Kinematic;
+            floorBounds = new Rectangle(0, 580, 1280, 720);
             floor.IsStatic = true;
-            floor.CollisionCategories = Category.Cat1;
-            floor.CollidesWith = Category.All;
+            //floor.CollisionCategories = Category.Cat1;
+            //floor.CollidesWith = Category.All;
 
             floorSprite = Content.Load<Texture2D>("Sprites/Floor");
             floorPos.X = floor.Position.X;
@@ -108,6 +110,7 @@ namespace GameAttempt
             //player.Position.Y = player.Body.Position.Y;
 
             player.Update(gameTime, playersList);
+            player.CollisionDetect(playersList, floorBounds);
 
             base.Update(gameTime);
         }
@@ -118,7 +121,7 @@ namespace GameAttempt
 
             spriteBatch.Begin();
             player.Draw(gameTime, spriteBatch, playersList);
-            spriteBatch.Draw(floorSprite, floorPos, Color.White);
+            spriteBatch.Draw(floorSprite, floorBounds, Color.White);
             spriteBatch.End();
 
             base.Draw(gameTime);

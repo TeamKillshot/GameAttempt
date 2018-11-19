@@ -1,7 +1,7 @@
 ﻿using Components;
 using FarseerPhysics.Dynamics;
 using FarseerPhysics.Factories;
-using FarseerPhysics.Collision;
+using FarseerPhysics.Collision.Shapes;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -19,6 +19,8 @@ namespace GameAttempt.Components
 
         public PlayerIndex index;
         public Vector2 Position;
+        public Vector2 previousPosition;
+        public Rectangle Bounds;
         public Texture2D Sprite { get; set; }
         public string Name { get; set; }
         public Body Body { get; set; }
@@ -54,6 +56,21 @@ namespace GameAttempt.Components
 
             player.Position.X = Body.Position.X;
             player.Position.Y = Body.Position.Y;
+        }
+
+        public void CollisionDetect(List<Player> playerlist, Rectangle rectangle)
+        {
+            foreach (Player player in playerlist)
+            {
+                if (player != null && rectangle != null)
+                {
+                    if (player.Bounds.Intersects(rectangle))
+                    {
+                        player.Position = player.previousPosition;
+                        player.Body.IgnoreGravity = true;
+                    }
+                }
+            }
         }
 
         public void GetPlayerIndex(Player player)
@@ -99,6 +116,9 @@ namespace GameAttempt.Components
 
                     player.Position.X = player.Body.Position.X;
                     player.Position.Y = player.Body.Position.Y;
+
+                    player.previousPosition = player.Position;
+                    player.Bounds = new Rectangle(player.Position.ToPoint(), new Point(128, 128));
 
                     GamePadState state = GamePad.GetState(player.index);
                     player.Body.ApplyForce(state.ThumbSticks.Left * speed);
