@@ -58,3 +58,5 @@ C:\Users\thats\Source\Repos\GameAttempt\GameAttempt\obj\x86\Debug\GameAttempt.cs
 C:\Users\thats\Source\Repos\GameAttempt\GameAttempt\obj\x86\Debug\GameAttempt.csproj.CopyComplete
 C:\Users\thats\Source\Repos\GameAttempt\GameAttempt\obj\x86\Debug\GameAttempt.exe
 C:\Users\thats\Source\Repos\GameAttempt\GameAttempt\obj\x86\Debug\GameAttempt.pdb
+C:\Users\thats\source\repos\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Content\Sprites\Collison.xnb
+C:\Users\thats\source\repos\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Content\Sprites\tank tiles 64 x 64.xnb

@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
+using TileEngine;
 
 namespace GameAttempt
 {
@@ -14,14 +15,7 @@ namespace GameAttempt
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-
-        Body floor;
-        Texture2D floorSprite;
-        Vector2 floorPos;
-        Rectangle floorBounds;
-
-        //World world;
-        //float gravity = 9.8f;
+        TRender render;
 
         public Player player, player1, player2, player3, player4;
 
@@ -42,27 +36,13 @@ namespace GameAttempt
 
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
+            render = new TRender(this);
 
             base.Initialize();
         }
 
         protected override void LoadContent()
         {
-            Vector2 size = GraphicsDevice.Viewport.Bounds.Size.ToVector2();
-            Vector2 pos = size - new Vector2(size.X, size.Y - 620);
-
-            floor = BodyFactory.CreateRectangle(new World(Vector2.Zero), size.X, size.Y-680, 1f, pos);
-            floor.BodyType = BodyType.Kinematic;
-            floorBounds = new Rectangle(0, 580, 1280, 720);
-            floor.IsStatic = true;
-            //floor.CollisionCategories = Category.Cat1;
-            //floor.CollidesWith = Category.All;
-
-            floorSprite = Content.Load<Texture2D>("Sprites/Floor");
-            floorPos.X = floor.Position.X;
-            floorPos.Y = floor.Position.Y;
-
             #region Player Instances
             player1 = new Player(this);
             player1.Name = "Player1";
@@ -94,7 +74,7 @@ namespace GameAttempt
             }
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
+            this.Services.AddService<SpriteBatch>(spriteBatch);
         }
         protected override void UnloadContent()
         {
@@ -110,7 +90,6 @@ namespace GameAttempt
             //player.Position.Y = player.Body.Position.Y;
 
             player.Update(gameTime, playersList);
-            player.CollisionDetect(playersList, floorBounds);
 
             base.Update(gameTime);
         }
@@ -121,7 +100,6 @@ namespace GameAttempt
 
             spriteBatch.Begin();
             player.Draw(gameTime, spriteBatch, playersList);
-            spriteBatch.Draw(floorSprite, floorBounds, Color.White);
             spriteBatch.End();
 
             base.Draw(gameTime);
