@@ -16,6 +16,9 @@ namespace GameAttempt
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         TRender render;
+        TManager tileManager;
+        Texture2D floor;
+        Rectangle floorRec = new Rectangle(0, 575, 1280, 720);
 
         public Player player, player1, player2, player3, player4;
 
@@ -65,6 +68,8 @@ namespace GameAttempt
             playersList.Add(player3);
             playersList.Add(player4);
 
+            floor = Content.Load<Texture2D>("Sprites/Collison");
+
             //world = new World(new Vector2(0, gravity));
 
             foreach (Player player in playersList)
@@ -91,6 +96,14 @@ namespace GameAttempt
 
             player.Update(gameTime, playersList);
 
+            foreach (Player player in playersList)
+            {
+                if (player.Bounds.Intersects(floorRec))
+                {
+                    player.hasCollided = true;
+                }
+            }
+
             base.Update(gameTime);
         }
 
@@ -100,6 +113,7 @@ namespace GameAttempt
 
             spriteBatch.Begin();
             player.Draw(gameTime, spriteBatch, playersList);
+            spriteBatch.Draw(floor, floorRec, Color.White);
             spriteBatch.End();
 
             base.Draw(gameTime);

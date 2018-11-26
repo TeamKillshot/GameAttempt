@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TileEngine.TileEngine;
 
 namespace GameAttempt.Components
 {
@@ -19,6 +20,8 @@ namespace GameAttempt.Components
 
         public PlayerIndex index;
         public Vector2 Position;
+        public Rectangle Bounds;
+        //Player player;
         public Vector2 previousPosition;
         public Texture2D Sprite { get; set; }
         public string Name { get; set; }
@@ -30,6 +33,7 @@ namespace GameAttempt.Components
         public List<Player> playerList = new List<Player>();
 
         public bool IsConnected = false;
+        public bool hasCollided = false;
 
         private int speed = 25;
         #endregion
@@ -48,11 +52,11 @@ namespace GameAttempt.Components
             player.Position = new Vector2(200, 200);
             player.Body = BodyFactory.CreateCircle(world, 1, 1);
             player.Body.Restitution = 1f;
-            player.Body.Mass = 1f;
+            //player.Body.Mass = 1f;
             player.Body.BodyType = BodyType.Dynamic;
 
-            player.Position.X = Body.Position.X;
-            player.Position.Y = Body.Position.Y;
+            player.Position.X = player.Body.Position.X;
+            player.Position.Y = player.Body.Position.Y;
         }
 
         public void GetPlayerIndex(Player player)
@@ -96,6 +100,9 @@ namespace GameAttempt.Components
                 {
                     player.world.Step(5f);
 
+                    player.previousPosition = player.Position;
+                    player.Bounds = new Rectangle(player.Position.ToPoint(), new Point(88, 88));
+
                     player.Position.X = player.Body.Position.X;
                     player.Position.Y = player.Body.Position.Y;
 
@@ -111,10 +118,28 @@ namespace GameAttempt.Components
                         player.Position.X -= speed;
                     }
                 }
+
+                if(player.hasCollided == true)
+                {
+                    player.Position = player.previousPosition;
+                    player.hasCollided = false;
+                    player.Body.IgnoreGravity = true;
+                }
             }
 
             #endregion
         }
+
+        //public void Collision(Rectangle floorRec, List<Player> playerList)
+        //{
+        //    foreach (Player player in playerList)
+        //    {
+        //        if (player.Bounds.Intersects(floorRec))
+        //        {
+        //            hasCollided = true;
+        //        }
+        //    }
+        //}
 
         public void Draw(GameTime gameTime, SpriteBatch spritebatch, List<Player> playerList)
         {
@@ -123,7 +148,7 @@ namespace GameAttempt.Components
             {
                 if (player.Sprite != null && player.IsConnected == true)
                 {
-                    spritebatch.Draw(player.Sprite, player.Position, Color.White);
+                    spritebatch.Draw(player.Sprite, player.Bounds, Color.White);
                 }
             }
             //spritebatch.End();

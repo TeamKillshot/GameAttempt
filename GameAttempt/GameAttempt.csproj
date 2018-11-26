@@ -65,6 +65,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Sprites\CharacterSpriteSheet.png" />
     <Content Include="Content\Sprites\Collison.png" />
     <Content Include="Content\Sprites\Floor.png" />
     <Content Include="Content\Sprites\Mike.png" />

@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using GameAttempt.Components;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
@@ -58,10 +59,11 @@ namespace TileEngine
 			tRefs.Add(new TRef(6, 4, 0));	// blank space
 			tRefs.Add(new TRef(9, 4, 1));	// Ground with grass
 			tRefs.Add(new TRef(4, 3, 2));	// Ground 
+            //tRefs.Add(new TRef(0, 0, 3));   // Player
 			
 
-			string[] tNames = { "Empty", "Ground1", "Ground2"}; // names of tiles
-			string[] impassableTiles = { "Ground1" };
+			string[] tNames = { "Empty", "Ground1", "Ground2" /*"Player"*/}; // names of tiles
+			string[] impassableTiles = { "Ground1" /*"Player"*/ };
 
 			tsWidth = tSheet.Width / tsColumns;					// gets Width of tiles
 			tsHeight = tSheet.Height / tsRows;					// gets Height of tiles

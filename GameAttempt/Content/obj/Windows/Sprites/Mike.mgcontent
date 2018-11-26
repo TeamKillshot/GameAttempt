@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/thats/source/repos/GameAttempt/GameAttempt/Content/Sprites/Mike.png</SourceFile>
-  <SourceTime>2018-11-20T13:00:19.0881462+00:00</SourceTime>
-  <DestFile>C:/Users/thats/source/repos/GameAttempt/GameAttempt/Content/bin/Windows/Sprites/Mike.xnb</DestFile>
-  <DestTime>2018-11-20T13:01:23.9628296+00:00</DestTime>
+  <SourceFile>C:/Users/thats/OneDrive/Documents/College Stuff/Project300/GameAttempt1/GameAttempt/GameAttempt/Content/Sprites/Mike.png</SourceFile>
+  <SourceTime>2018-11-24T15:47:35.9056105+00:00</SourceTime>
+  <DestFile>C:/Users/thats/OneDrive/Documents/College Stuff/Project300/GameAttempt1/GameAttempt/GameAttempt/Content/bin/Windows/Sprites/Mike.xnb</DestFile>
+  <DestTime>2018-11-26T17:17:55.777834+00:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-03-01T15:05:36+00:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
