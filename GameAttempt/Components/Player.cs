@@ -91,9 +91,8 @@ namespace GameAttempt.Components
             #endregion
         }
 
-        public unsafe void Update(GameTime gameTime, List<Player> playerList)
+        public unsafe void PlayerMovement(List<Player> playerList)
         {
-            #region Player1 Controller
             foreach (Player player in playerList)
             {
                 if (player != null && player.IsConnected == true)
@@ -109,25 +108,41 @@ namespace GameAttempt.Components
                     GamePadState state = GamePad.GetState(player.index);
                     player.Body.ApplyForce(state.ThumbSticks.Left * speed);
 
-                    if (InputManager.IsButtonPressed(Buttons.DPadRight))
-                    {
-                        player.Position.X += speed;
-                    }
-                    if (InputManager.IsButtonPressed(Buttons.DPadLeft))
-                    {
-                        player.Position.X -= speed;
-                    }
                 }
+            }
+        }
 
-                if(player.hasCollided == true)
+        public void Update(GameTime gameTime, List<Player> playerList)
+        {
+            #region Player1 Controller
+
+
+            //if (InputManager.IsButtonPressed(Buttons.DPadRight))
+            //{
+            //    player.Position.X += speed;
+            //}
+            //if (InputManager.IsButtonPressed(Buttons.DPadLeft))
+            //{
+            //    player.Position.X -= speed;
+            //}
+
+            #endregion
+
+            foreach (Player player in playerList)
+            {
+                if (player.hasCollided == true)
                 {
+                    PlayerMovement(playerList);
                     player.Position = player.previousPosition;
                     player.hasCollided = false;
                     player.Body.IgnoreGravity = true;
                 }
+                else
+                {
+                    PlayerMovement(playerList);
+                    player.Body.IgnoreGravity = false;
+                }
             }
-
-            #endregion
         }
 
         //public void Collision(Rectangle floorRec, List<Player> playerList)

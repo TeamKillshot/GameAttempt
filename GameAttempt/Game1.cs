@@ -18,7 +18,7 @@ namespace GameAttempt
         TRender render;
         TManager tileManager;
         Texture2D floor;
-        Rectangle floorRec = new Rectangle(0, 575, 1280, 720);
+        Rectangle floorRec = new Rectangle(0, 585, 1280, 720);
 
         public Player player, player1, player2, player3, player4;
 
@@ -94,15 +94,15 @@ namespace GameAttempt
             //player.Position.X = player.Body.Position.X;
             //player.Position.Y = player.Body.Position.Y;
 
-            player.Update(gameTime, playersList);
-
             foreach (Player player in playersList)
             {
-                if (player.Bounds.Intersects(floorRec))
+                if (player.Bounds.Intersects(floorRec) && player.hasCollided == false)
                 {
                     player.hasCollided = true;
                 }
             }
+
+            player.Update(gameTime, playersList);
 
             base.Update(gameTime);
         }
