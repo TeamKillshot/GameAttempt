@@ -32,7 +32,7 @@ namespace GameAttempt.Components
 
         public List<Player> playerList = new List<Player>();
 
-        public bool IsConnected = false;
+        //public bool IsConnected = false;
         public bool hasCollided = false;
 
         private int speed = 25;
@@ -71,22 +71,22 @@ namespace GameAttempt.Components
             if (player.Name == "Player1" && state.IsConnected)
             {
                 player.index = PlayerIndex.One;
-                player.IsConnected = true;
+                //player.IsConnected = true;
             }
             else if (player.Name == "Player2" && state2.IsConnected)
             {
                 player.index = PlayerIndex.Two;
-                player.IsConnected = true;
+                //player.IsConnected = true;
             }
             else if (player.Name == "Players3" && !state.IsConnected)
             {
                 player.index = PlayerIndex.Three;
-                player.IsConnected = true;
+                //player.IsConnected = true;
             }
             else if (player.Name == "Player4" && !state.IsConnected)
             {
                 player.index = PlayerIndex.Four;
-                player.IsConnected = true;
+                //player.IsConnected = true;
             }
             #endregion
         }
@@ -95,7 +95,7 @@ namespace GameAttempt.Components
         {
             foreach (Player player in playerList)
             {
-                if (player != null && player.IsConnected == true)
+                if (player != null /*&& player.IsConnected == true*/)
                 {
                     player.world.Step(5f);
 
@@ -107,6 +107,15 @@ namespace GameAttempt.Components
 
                     GamePadState state = GamePad.GetState(player.index);
                     player.Body.ApplyForce(state.ThumbSticks.Left * speed);
+
+                    if(InputManager.IsKeyPressed(Keys.A))
+                    {
+                        player.Body.ApplyForce(new Vector2(-200, 0) * speed);
+                    }
+                    if (InputManager.IsKeyHeld(Keys.D))
+                    {
+                        player.Body.ApplyForce(new Vector2(200, 0) * speed);
+                    }
 
                 }
             }
@@ -128,11 +137,12 @@ namespace GameAttempt.Components
 
             #endregion
 
+            PlayerMovement(playerList);
+
             foreach (Player player in playerList)
             {
                 if (player.hasCollided == true)
-                {
-                    PlayerMovement(playerList);
+                {                   
                     player.Position = player.previousPosition;
                     player.hasCollided = false;
                     player.Body.IgnoreGravity = true;
@@ -161,7 +171,7 @@ namespace GameAttempt.Components
             //spritebatch.Begin();
             foreach (Player player in playerList)
             {
-                if (player.Sprite != null && player.IsConnected == true)
+                if (player.Sprite != null /*&& player.IsConnected == true*/)
                 {
                     spritebatch.Draw(player.Sprite, player.Bounds, Color.White);
                 }

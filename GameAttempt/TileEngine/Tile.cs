@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,7 @@ namespace TileEngine
 		int id;
 		int x;
 		int y;
+        Rectangle tileRect;
 		TRef refs;
 		bool passable;
 		string tileName;
@@ -57,6 +59,11 @@ namespace TileEngine
 			get { return refs; }
 			set { refs = value; }
 		}
+        public Rectangle getTile()
+        {
+            tileRect = new Rectangle(X, Y, tileWidth, tileHeight);
+            return tileRect;
+        }
 
 	}
 }

@@ -10,7 +10,7 @@ namespace TileEngine.TileEngine
 {
     public class Collider
     {
-        Rectangle collider;
+        public Rectangle collider;
         Texture2D collisonImage;
 
 
@@ -18,6 +18,11 @@ namespace TileEngine.TileEngine
         {
             collisonImage = Image;
             collider = new Rectangle((int)startPos.X, (int)startPos.Y, (int)size.X, (int)size.Y);
+        }
+
+        public Rectangle GetCollidingRectangle()
+        {
+            return collider;
         }
 
         public void draw(SpriteBatch spriteBatch)

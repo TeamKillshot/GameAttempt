@@ -16,7 +16,7 @@ namespace TileEngine
 		#region Properties
 		TManager tileManager;
 		Texture2D tSheet;
-		List<Collider> collisons = new List<Collider>();
+		public List<Collider> collisons = new List<Collider>();
 		int tsWidth;						// gets the width of tSheet
 		int tsHeight;						// gets teh height of tSheet
 		int tsRows = 12;					// how many sprites in a column

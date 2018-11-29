@@ -93,3 +93,4 @@ C:\Users\thats\OneDrive\Documents\College Stuff\Project300\GameAttempt1\GameAtte
 C:\Users\thats\OneDrive\Documents\College Stuff\Project300\GameAttempt1\GameAttempt\GameAttempt\obj\x86\Debug\GameAttempt.pdb
 C:\Users\thats\OneDrive\Documents\College Stuff\Project300\GameAttempt1\GameAttempt\GameAttempt\obj\x86\Debug\GameAttempt.csprojAssemblyReference.cache
 C:\Users\thats\OneDrive\Documents\College Stuff\Project300\GameAttempt1\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Content\Sprites\CharacterSpriteSheet.xnb
+C:\Users\thats\Source\Repos\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Content\Sprites\CharacterSpriteSheet.xnb

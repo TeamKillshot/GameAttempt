@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
 using TileEngine;
+using TileEngine.TileEngine;
 
 namespace GameAttempt
 {
@@ -15,10 +16,9 @@ namespace GameAttempt
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        TRender render;
-        TManager tileManager;
-        Texture2D floor;
-        Rectangle floorRec = new Rectangle(0, 585, 1280, 720);
+
+        Collider tileRec;
+        TRender tiles;
 
         public Player player, player1, player2, player3, player4;
 
@@ -35,12 +35,11 @@ namespace GameAttempt
 
             new InputManager(this);
             player = new Player(this);
+            tiles = new TRender(this);
         }
 
         protected override void Initialize()
         {
-            render = new TRender(this);
-
             base.Initialize();
         }
 
@@ -68,8 +67,6 @@ namespace GameAttempt
             playersList.Add(player3);
             playersList.Add(player4);
 
-            floor = Content.Load<Texture2D>("Sprites/Collison");
-
             //world = new World(new Vector2(0, gravity));
 
             foreach (Player player in playersList)
@@ -95,8 +92,9 @@ namespace GameAttempt
             //player.Position.Y = player.Body.Position.Y;
 
             foreach (Player player in playersList)
+                foreach(Collider c in tiles.collisons)
             {
-                if (player.Bounds.Intersects(floorRec) && player.hasCollided == false)
+                if (player.Bounds.Intersects(c.GetCollidingRectangle()) && player.hasCollided == false)
                 {
                     player.hasCollided = true;
                 }
@@ -113,7 +111,6 @@ namespace GameAttempt
 
             spriteBatch.Begin();
             player.Draw(gameTime, spriteBatch, playersList);
-            spriteBatch.Draw(floor, floorRec, Color.White);
             spriteBatch.End();
 
             base.Draw(gameTime);
