@@ -96,7 +96,8 @@ namespace GameAttempt
             {
                 if (player.Bounds.Intersects(c.GetCollidingRectangle()) && player.hasCollided == false)
                 {
-                    player.hasCollided = true;
+                        //player.hasCollided = true;
+                        player.Collision(player);
                 }
             }
 

@@ -139,32 +139,26 @@ namespace GameAttempt.Components
 
             PlayerMovement(playerList);
 
-            foreach (Player player in playerList)
-            {
-                if (player.hasCollided == true)
-                {                   
-                    player.Position = player.previousPosition;
-                    player.hasCollided = false;
-                    player.Body.IgnoreGravity = true;
-                }
-                else
-                {
-                    PlayerMovement(playerList);
-                    player.Body.IgnoreGravity = false;
-                }
-            }
+            //foreach (Player player in playerList)
+            //{
+            //    if (player.hasCollided == true)
+            //    {                   
+            //        player.Position = player.previousPosition;
+            //        player.hasCollided = false;
+            //    }
+            //}
         }
 
-        //public void Collision(Rectangle floorRec, List<Player> playerList)
-        //{
-        //    foreach (Player player in playerList)
-        //    {
-        //        if (player.Bounds.Intersects(floorRec))
-        //        {
-        //            hasCollided = true;
-        //        }
-        //    }
-        //}
+        public void Collision(Player player)
+        {
+            player.hasCollided = true;
+
+            if (player.hasCollided == true)
+            {
+                player.Position = player.previousPosition;
+                player.hasCollided = false;
+            }
+        }
 
         public void Draw(GameTime gameTime, SpriteBatch spritebatch, List<Player> playerList)
         {
