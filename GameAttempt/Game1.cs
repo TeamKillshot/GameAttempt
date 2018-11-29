@@ -17,7 +17,6 @@ namespace GameAttempt
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        Collider tileRec;
         TRender tiles;
 
         public Player player, player1, player2, player3, player4;
@@ -91,17 +90,7 @@ namespace GameAttempt
             //player.Position.X = player.Body.Position.X;
             //player.Position.Y = player.Body.Position.Y;
 
-            foreach (Player player in playersList)
-                foreach(Collider c in tiles.collisons)
-            {
-                if (player.Bounds.Intersects(c.GetCollidingRectangle()) && player.hasCollided == false)
-                {
-                        //player.hasCollided = true;
-                        player.Collision(player);
-                }
-            }
-
-            player.Update(gameTime, playersList);
+            player.Update(gameTime, playersList, tiles);
 
             base.Update(gameTime);
         }

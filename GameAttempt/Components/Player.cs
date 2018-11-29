@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TileEngine.TileEngine;
+using TileEngine;
 
 namespace GameAttempt.Components
 {
@@ -33,7 +34,8 @@ namespace GameAttempt.Components
         public List<Player> playerList = new List<Player>();
 
         //public bool IsConnected = false;
-        public bool hasCollided = false;
+        public bool isColliding = false;
+        public bool canMove = true;
 
         private int speed = 25;
         #endregion
@@ -91,37 +93,7 @@ namespace GameAttempt.Components
             #endregion
         }
 
-        public unsafe void PlayerMovement(List<Player> playerList)
-        {
-            foreach (Player player in playerList)
-            {
-                if (player != null /*&& player.IsConnected == true*/)
-                {
-                    player.world.Step(5f);
-
-                    player.previousPosition = player.Position;
-                    player.Bounds = new Rectangle(player.Position.ToPoint(), new Point(88, 88));
-
-                    player.Position.X = player.Body.Position.X;
-                    player.Position.Y = player.Body.Position.Y;
-
-                    GamePadState state = GamePad.GetState(player.index);
-                    player.Body.ApplyForce(state.ThumbSticks.Left * speed);
-
-                    if(InputManager.IsKeyPressed(Keys.A))
-                    {
-                        player.Body.ApplyForce(new Vector2(-200, 0) * speed);
-                    }
-                    if (InputManager.IsKeyHeld(Keys.D))
-                    {
-                        player.Body.ApplyForce(new Vector2(200, 0) * speed);
-                    }
-
-                }
-            }
-        }
-
-        public void Update(GameTime gameTime, List<Player> playerList)
+        public void Update(GameTime gameTime, List<Player> playerList, TRender tiles)
         {
             #region Player1 Controller
 
@@ -137,26 +109,70 @@ namespace GameAttempt.Components
 
             #endregion
 
-            PlayerMovement(playerList);
+            foreach(Player player in playerList)
+            {
+                player.world.Step(1f);
 
-            //foreach (Player player in playerList)
-            //{
-            //    if (player.hasCollided == true)
-            //    {                   
-            //        player.Position = player.previousPosition;
-            //        player.hasCollided = false;
-            //    }
-            //}
+                foreach (Collider c in tiles.collisons)
+                {
+                    if (player.Bounds.Intersects(c.GetCollidingRectangle()) && player.isColliding == false)
+                    {
+                        player.canMove = false;
+                        player.isColliding = true;
+                        Collision(player);
+                    }
+                    else
+                    {
+                        player.isColliding = false;
+                        player.canMove = true;
+                    }
+                }
+
+                if(player.isColliding == false && player.canMove == true)
+                {
+                    PlayerMovement(player);
+                }
+            }
         }
+
+        public unsafe void PlayerMovement(Player player)
+        {
+            if (player != null /*&& player.IsConnected == true*/)
+            {
+                player.previousPosition = player.Position;
+                player.Bounds = new Rectangle(player.Position.ToPoint(), new Point(88, 88));
+
+                player.Position.X = player.Body.Position.X;
+                player.Position.Y = player.Body.Position.Y;
+
+                GamePadState state = GamePad.GetState(player.index);
+                player.Body.ApplyForce(state.ThumbSticks.Left * speed);
+
+                if (InputManager.IsKeyPressed(Keys.A))
+                {
+                    player.Body.ApplyForce(new Vector2(-200, 0) * speed);
+                }
+                if (InputManager.IsKeyHeld(Keys.D))
+                {
+                    player.Body.ApplyForce(new Vector2(200, 0) * speed);
+                }
+
+            }
+        }
+
 
         public void Collision(Player player)
         {
-            player.hasCollided = true;
-
-            if (player.hasCollided == true)
+            if (player.isColliding == true)
             {
                 player.Position = player.previousPosition;
-                player.hasCollided = false;
+                player.isColliding = false;
+                player.canMove = true;
+            }
+            else
+            {
+                player.isColliding = false;
+                player.canMove = true;
             }
         }
 
