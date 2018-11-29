@@ -98,3 +98,13 @@ C:\Users\Alex\source\repos\GameAttempt\GameAttempt\obj\x86\Debug\GameAttempt.csp
 C:\Users\Alex\source\repos\GameAttempt\GameAttempt\obj\x86\Debug\GameAttempt.csproj.CoreCompileInputs.cache
 C:\Users\Alex\source\repos\GameAttempt\GameAttempt\obj\x86\Debug\GameAttempt.exe
 C:\Users\Alex\source\repos\GameAttempt\GameAttempt\obj\x86\Debug\GameAttempt.pdb
+C:\Users\thats\Source\Repos\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Content\Content\Sprites\CharacterSpriteSheet.xnb
+C:\Users\thats\Source\Repos\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Content\Content\Sprites\Collison.xnb
+C:\Users\thats\Source\Repos\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Content\Content\Sprites\Floor.xnb
+C:\Users\thats\Source\Repos\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Content\Content\Sprites\Mike.xnb
+C:\Users\thats\Source\Repos\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Content\Content\Sprites\Spike.xnb
+C:\Users\thats\Source\Repos\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Content\Content\Sprites\tank tiles 64 x 64.xnb
+C:\Users\thats\Source\Repos\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Content\Content\Collison.xnb
+C:\Users\thats\Source\Repos\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Content\Content\TileSheetOne.xnb
+C:\Users\thats\Source\Repos\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Content\Collison.xnb
+C:\Users\thats\Source\Repos\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Content\TileSheetOne.xnb
