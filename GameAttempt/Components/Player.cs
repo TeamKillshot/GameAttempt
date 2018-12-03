@@ -67,7 +67,7 @@ namespace GameAttempt.Components
             GamePadState state2 = GamePad.GetState(PlayerIndex.Two);
             GamePadState state3 = GamePad.GetState(PlayerIndex.Three);
             GamePadState state4 = GamePad.GetState(PlayerIndex.Four);
-            
+
 
             if (player.Name == "Player1" && state.IsConnected)
             {
@@ -108,7 +108,7 @@ namespace GameAttempt.Components
 
             #endregion
 
-            foreach(Player player in playerList)
+            foreach (Player player in playerList)
             {
                 player.world.Step(1f);
 
@@ -127,7 +127,7 @@ namespace GameAttempt.Components
                     }
                 }
 
-                if(player.isColliding == false && player.canMove == true)
+                if (player.isColliding == false && player.canMove == true)
                 {
                     PlayerMovement(player);
                 }
@@ -175,9 +175,9 @@ namespace GameAttempt.Components
             }
         }
 
-        public void Draw(GameTime gameTime, SpriteBatch spritebatch, List<Player> playerList)
+        public void Draw(SpriteBatch spritebatch, List<Player> playerList)
         {
-            //spritebatch.Begin();
+            spritebatch.Begin();
             foreach (Player player in playerList)
             {
                 if (player.Sprite != null /*&& player.IsConnected == true*/)
@@ -185,7 +185,7 @@ namespace GameAttempt.Components
                     spritebatch.Draw(player.Sprite, player.Bounds, Color.White);
                 }
             }
-            //spritebatch.End();
+            spritebatch.End();
         }
     }
 }

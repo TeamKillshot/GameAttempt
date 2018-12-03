@@ -108,3 +108,7 @@ C:\Users\thats\Source\Repos\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Conten
 C:\Users\thats\Source\Repos\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Content\Content\TileSheetOne.xnb
 C:\Users\thats\Source\Repos\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Content\Collison.xnb
 C:\Users\thats\Source\Repos\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Content\TileSheetOne.xnb
+C:\Users\thats\source\repos\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Content\MenuTextures\MenuTexture1_Background.xnb
+C:\Users\thats\source\repos\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Content\MenuTextures\MenuTexture2_Play.xnb
+C:\Users\thats\source\repos\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Content\MenuTextures\MenuTexture3_HighScore.xnb
+C:\Users\thats\source\repos\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Content\MenuTextures\MenuTexture4_Exit.xnb

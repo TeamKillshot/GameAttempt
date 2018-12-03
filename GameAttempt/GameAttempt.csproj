@@ -44,7 +44,11 @@
   <ItemGroup>
     <Compile Include="Camera.cs" />
     <Compile Include="Components\InputManager.cs" />
+    <Compile Include="Components\Loader.cs" />
+    <Compile Include="Components\Menu.cs" />
     <Compile Include="Components\Player.cs" />
+    <Compile Include="Components\Scene.cs" />
+    <Compile Include="Components\SceneManager.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -67,6 +71,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Collison.png" />
+    <Content Include="Content\MenuTextures\MenuTexture1_Background.png" />
+    <Content Include="Content\MenuTextures\MenuTexture2_Play.png" />
+    <Content Include="Content\MenuTextures\MenuTexture3_HighScore.jpg" />
+    <Content Include="Content\MenuTextures\MenuTexture4_Exit.jpg" />
     <Content Include="Content\Sprites\CharacterSpriteSheet.png" />
     <Content Include="Content\Sprites\Collison.png" />
     <Content Include="Content\Sprites\Floor.png" />

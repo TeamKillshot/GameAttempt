@@ -12,5 +12,9 @@
     <File>C:/Users/thats/source/repos/GameAttempt/GameAttempt/Content/Sprites/Collison.png</File>
     <File>C:/Users/thats/source/repos/GameAttempt/GameAttempt/Content/Sprites/tank tiles 64 x 64.png</File>
     <File>C:/Users/thats/source/repos/GameAttempt/GameAttempt/Content/Sprites/CharacterSpriteSheet.png</File>
+    <File>C:/Users/thats/source/repos/GameAttempt/GameAttempt/Content/MenuTextures/MenuTexture1_Background.png</File>
+    <File>C:/Users/thats/source/repos/GameAttempt/GameAttempt/Content/MenuTextures/MenuTexture2_Play.png</File>
+    <File>C:/Users/thats/source/repos/GameAttempt/GameAttempt/Content/MenuTextures/MenuTexture3_HighScore.jpg</File>
+    <File>C:/Users/thats/source/repos/GameAttempt/GameAttempt/Content/MenuTextures/MenuTexture4_Exit.jpg</File>
   </SourceFiles>
 </SourceFileCollection>

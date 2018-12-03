@@ -1,4 +1,5 @@
 ﻿using Components;
+using Components.SceneManager;
 using FarseerPhysics.Collision;
 using FarseerPhysics.Dynamics;
 using FarseerPhysics.Factories;
@@ -17,10 +18,20 @@ namespace GameAttempt
         SpriteBatch spriteBatch;
 
         TRender tiles;
-
         public Player player, player1, player2, player3, player4;
+        public List<Player> playersList = new List<Player>();
 
-        List<Player> playersList = new List<Player>();
+        //Dictionary<string, Texture2D> menuTextures = new Dictionary<string, Texture2D>();
+
+        //List<Menu> menuChoices = new List<Menu>();
+        //Menu play;
+        //Menu scores;
+        //Menu exit;
+
+        //private _activeScreen _current;
+        //Scene menuScene;
+        //Scene playScene;
+        //Scene activeScene;
 
         public Game1()
         {
@@ -73,6 +84,28 @@ namespace GameAttempt
                 player.GetPlayerPosition(player);
             }
 
+            //menuTextures = Loader.ContentLoad<Texture2D>(Content, "MenuTextures");
+
+            //play = new Menu(menuTextures["MenuTexture2_Play"], new Vector2(520, 300), Color.White, false);
+            //scores = new Menu(menuTextures["MenuTexture3_HighScore"], new Vector2(520, 420), Color.White, false);
+            //exit = new Menu(menuTextures["MenuTexture4_Exit"], new Vector2(520, 540), Color.White, false);
+
+            //List<Menu> menuItems = new List<Menu>();
+
+            ////add them to the list
+            //menuItems.Add(play);
+            //menuItems.Add(scores);
+            //menuItems.Add(exit);
+
+            ////create the Menu
+            //menuScene = new Scene(menuTextures["MenuTexture1_Background"], menuItems);
+
+            //_current = _activeScreen.MENU;
+            //activeScene = menuScene;
+
+            //_current = _activeScreen.PLAY;
+            //activeScene = playScene;
+
             spriteBatch = new SpriteBatch(GraphicsDevice);
             this.Services.AddService<SpriteBatch>(spriteBatch);
         }
@@ -86,6 +119,17 @@ namespace GameAttempt
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
+            //Vector2 mousePos = new Vector2(Mouse.GetState().X, Mouse.GetState().Y);
+            //IsMouseVisible = true;
+
+            ////Rectangle over the play button to know when the button is clicked, changes the both screen state enum and the scene variable
+            //Rectangle playButtonPos = play.Bounds;
+            //if (playButtonPos.Contains(mousePos) && Mouse.GetState().LeftButton == ButtonState.Pressed)
+            //{
+            //    _current = _activeScreen.PLAY;
+            //    activeScene = playScene;
+            //}
+
             player.Update(gameTime, playersList, tiles);
 
             base.Update(gameTime);
@@ -94,10 +138,24 @@ namespace GameAttempt
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
+            //spriteBatch.Begin();
+            player.Draw(spriteBatch, playersList);
+            //spriteBatch.End();
+            //switch (_current)
+            //{
+            //    case _activeScreen.MENU:
+            //        spriteBatch.Begin();
+            //        activeScene.Draw(spriteBatch, playersList);
+            //        spriteBatch.End();
+            //        break;
 
-            spriteBatch.Begin();
-            player.Draw(gameTime, spriteBatch, playersList);
-            spriteBatch.End();
+            //    case _activeScreen.PLAY:
+            //        spriteBatch.Begin();
+            //        activeScene.Draw(spriteBatch, playersList);
+            //        player.Draw(spriteBatch, playersList);
+            //        spriteBatch.End();
+            //        break;
+            //}
 
             base.Draw(gameTime);
         }
