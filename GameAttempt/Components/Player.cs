@@ -159,12 +159,12 @@ namespace GameAttempt.Components
             }
         }
 
-
         public void Collision(Player player)
         {
             if (player.isColliding == true)
             {
                 player.Position = player.previousPosition;
+                player.Body.Position = player.Position;
                 player.isColliding = false;
                 player.canMove = true;
             }
