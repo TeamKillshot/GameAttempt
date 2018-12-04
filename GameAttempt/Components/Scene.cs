@@ -21,8 +21,8 @@ namespace Components
         public List<Menu> MenuItems { get; }
 
         //Play Scene.
-        public Player Player;
-        public List<Player> playersList = new List<Player>();
+        public PlayerAttempt Player;
+        public List<PlayerAttempt> playersList = new List<PlayerAttempt>();
 
         private _activeScreen _current;
 
@@ -37,7 +37,7 @@ namespace Components
         }
 
         //Play Screen Constructor.
-        public Scene(Player player)
+        public Scene(PlayerAttempt player)
         {
             player = Player;
 
@@ -80,7 +80,7 @@ namespace Components
             }
         }
 
-        public virtual void Draw(SpriteBatch spriteBatch_, List<Player> playerList)
+        public virtual void Draw(SpriteBatch spriteBatch_, List<PlayerAttempt> playerList)
         {
             // Draw the background first.
             spriteBatch_.Draw(Background, Position, Color.White);

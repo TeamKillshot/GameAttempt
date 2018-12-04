@@ -47,6 +47,7 @@
     <Compile Include="Components\Loader.cs" />
     <Compile Include="Components\Menu.cs" />
     <Compile Include="Components\Player.cs" />
+    <Compile Include="Components\PlayerComponent.cs" />
     <Compile Include="Components\Scene.cs" />
     <Compile Include="Components\SceneManager.cs" />
     <Compile Include="Game1.cs" />

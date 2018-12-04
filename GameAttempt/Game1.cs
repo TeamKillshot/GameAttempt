@@ -18,8 +18,8 @@ namespace GameAttempt
         SpriteBatch spriteBatch;
 
         TRender tiles;
-        public Player player, player1, player2, player3, player4;
-        public List<Player> playersList = new List<Player>();
+        PlayerComponent player;
+        public List<PlayerAttempt> playersList = new List<PlayerAttempt>();
 
         #region Properties and Variables for Menu
         //Dictionary<string, Texture2D> menuTextures = new Dictionary<string, Texture2D>();
@@ -46,7 +46,7 @@ namespace GameAttempt
             graphics.ApplyChanges();
 
             new InputManager(this);
-            player = new Player(this);
+            player = new PlayerComponent(this);
             tiles = new TRender(this);
         }
 
@@ -58,30 +58,30 @@ namespace GameAttempt
         protected override void LoadContent()
         {
             #region Player Instances
-            player1 = new Player(this);
-            player1.Name = "Player1";
-            player1.Sprite = Content.Load<Texture2D>("Sprites/Mike");
+            //player1 = new PlayerAttempt(this);
+            //player1.Name = "Player1";
+            //player1.Sprite = Content.Load<Texture2D>("Sprites/Mike");
 
-            player2 = new Player(this);
-            player2.Name = "Player2";
-            player2.Sprite = Content.Load<Texture2D>("Sprites/Spike");
+            //player2 = new PlayerAttempt(this);
+            //player2.Name = "Player2";
+            //player2.Sprite = Content.Load<Texture2D>("Sprites/Spike");
 
-            player3 = new Player(this);
-            player3.Name = "Player3";
+            //player3 = new PlayerAttempt(this);
+            //player3.Name = "Player3";
 
-            player4 = new Player(this);
-            player4.Name = "Player4";
+            //player4 = new PlayerAttempt(this);
+            //player4.Name = "Player4";
 
             #endregion
 
-            playersList.Add(player1);
-            playersList.Add(player2);
-            playersList.Add(player3);
-            playersList.Add(player4);
+            //playersList.Add(player1);
+            //playersList.Add(player2);
+            //playersList.Add(player3);
+            //playersList.Add(player4);
 
             //world = new World(new Vector2(0, gravity));
 
-            foreach (Player player in playersList)
+            foreach (PlayerAttempt player in playersList)
             {
                 player.GetPlayerIndex(player);
                 player.GetPlayerPosition(player);
@@ -141,7 +141,7 @@ namespace GameAttempt
 
             #endregion
 
-            player.Update(gameTime, playersList, tiles);
+            //player.Update(gameTime, playersList, tiles);
 
             base.Update(gameTime);
         }
@@ -150,7 +150,7 @@ namespace GameAttempt
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            player.Draw(spriteBatch, playersList);
+            //player.Draw(spriteBatch, playersList);
 
             #region Draw Menu
             //switch (_current)
