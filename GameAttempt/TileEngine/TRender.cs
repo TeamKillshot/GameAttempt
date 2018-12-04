@@ -17,7 +17,7 @@ namespace GameAttempt
 		#region Properties
 		TManager tileManager;
 		Texture2D tSheet;
-		Camera cam;
+		Camera camera;
 
 		Vector2 ViewportCentre
 		{
@@ -107,12 +107,12 @@ namespace GameAttempt
 		public override void Initialize()
 		{
 
-			cam = new Camera(Vector2.Zero,
+			camera = new Camera(Vector2.Zero,
 							 new Vector2(tileMap.GetLength(1) * tsWidth,
 										 tileMap.GetLength(0) * tsHeight),
 							 GraphicsDevice.Viewport);
 			
-			Game.Services.AddService<Camera>(cam);
+			Game.Services.AddService<Camera>(camera);
 			base.Initialize();
 		}
 
