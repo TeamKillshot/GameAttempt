@@ -1,5 +1,4 @@
 ﻿using Components;
-using Components.SceneManager;
 using FarseerPhysics.Collision;
 using FarseerPhysics.Dynamics;
 using FarseerPhysics.Factories;
@@ -19,7 +18,6 @@ namespace GameAttempt
 
         TRender tiles;
         PlayerComponent player;
-        public List<PlayerAttempt> playersList = new List<PlayerAttempt>();
 
         #region Properties and Variables for Menu
         //Dictionary<string, Texture2D> menuTextures = new Dictionary<string, Texture2D>();
@@ -57,35 +55,6 @@ namespace GameAttempt
 
         protected override void LoadContent()
         {
-            #region Player Instances
-            //player1 = new PlayerAttempt(this);
-            //player1.Name = "Player1";
-            //player1.Sprite = Content.Load<Texture2D>("Sprites/Mike");
-
-            //player2 = new PlayerAttempt(this);
-            //player2.Name = "Player2";
-            //player2.Sprite = Content.Load<Texture2D>("Sprites/Spike");
-
-            //player3 = new PlayerAttempt(this);
-            //player3.Name = "Player3";
-
-            //player4 = new PlayerAttempt(this);
-            //player4.Name = "Player4";
-
-            #endregion
-
-            //playersList.Add(player1);
-            //playersList.Add(player2);
-            //playersList.Add(player3);
-            //playersList.Add(player4);
-
-            //world = new World(new Vector2(0, gravity));
-
-            foreach (PlayerAttempt player in playersList)
-            {
-                player.GetPlayerIndex(player);
-                player.GetPlayerPosition(player);
-            }
 
             #region Load Menu Textures and Scenes
 
@@ -141,16 +110,12 @@ namespace GameAttempt
 
             #endregion
 
-            //player.Update(gameTime, playersList, tiles);
-
             base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-
-            //player.Draw(spriteBatch, playersList);
 
             #region Draw Menu
             //switch (_current)

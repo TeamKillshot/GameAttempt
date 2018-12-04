@@ -111,7 +111,7 @@ namespace GameAttempt
 							 new Vector2(tileMap.GetLength(1) * tsWidth,
 										 tileMap.GetLength(0) * tsHeight),
 							 GraphicsDevice.Viewport);
-			
+
 			Game.Services.AddService<Camera>(camera);
 			base.Initialize();
 		}
