@@ -21,6 +21,7 @@ namespace GameAttempt
         public Player player, player1, player2, player3, player4;
         public List<Player> playersList = new List<Player>();
 
+        #region Properties and Variables for Menu
         //Dictionary<string, Texture2D> menuTextures = new Dictionary<string, Texture2D>();
 
         //List<Menu> menuChoices = new List<Menu>();
@@ -32,6 +33,8 @@ namespace GameAttempt
         //Scene menuScene;
         //Scene playScene;
         //Scene activeScene;
+
+        #endregion
 
         public Game1()
         {
@@ -84,6 +87,8 @@ namespace GameAttempt
                 player.GetPlayerPosition(player);
             }
 
+            #region Load Menu Textures and Scenes
+
             //menuTextures = Loader.ContentLoad<Texture2D>(Content, "MenuTextures");
 
             //play = new Menu(menuTextures["MenuTexture2_Play"], new Vector2(520, 300), Color.White, false);
@@ -106,6 +111,8 @@ namespace GameAttempt
             //_current = _activeScreen.PLAY;
             //activeScene = playScene;
 
+            #endregion
+
             spriteBatch = new SpriteBatch(GraphicsDevice);
             this.Services.AddService<SpriteBatch>(spriteBatch);
         }
@@ -119,6 +126,8 @@ namespace GameAttempt
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
+            #region Update Menu
+
             //Vector2 mousePos = new Vector2(Mouse.GetState().X, Mouse.GetState().Y);
             //IsMouseVisible = true;
 
@@ -130,6 +139,8 @@ namespace GameAttempt
             //    activeScene = playScene;
             //}
 
+            #endregion
+
             player.Update(gameTime, playersList, tiles);
 
             base.Update(gameTime);
@@ -138,9 +149,10 @@ namespace GameAttempt
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-            //spriteBatch.Begin();
+
             player.Draw(spriteBatch, playersList);
-            //spriteBatch.End();
+
+            #region Draw Menu
             //switch (_current)
             //{
             //    case _activeScreen.MENU:
@@ -156,6 +168,7 @@ namespace GameAttempt
             //        spriteBatch.End();
             //        break;
             //}
+            #endregion
 
             base.Draw(gameTime);
         }

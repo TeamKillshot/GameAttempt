@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SourceFile>C:/Users/thats/source/repos/GameAttempt/GameAttempt/Content/Sprites/Spike.png</SourceFile>
-  <SourceTime>2018-11-29T13:02:34.1112134+00:00</SourceTime>
+  <SourceTime>2018-12-04T11:14:07.9514034+00:00</SourceTime>
   <DestFile>C:/Users/thats/source/repos/GameAttempt/GameAttempt/Content/bin/Windows/Sprites/Spike.xnb</DestFile>
-  <DestTime>2018-12-03T21:18:51.1868768+00:00</DestTime>
+  <DestTime>2018-12-04T11:14:35.2568789+00:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-03-01T15:05:36+00:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

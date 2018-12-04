@@ -121,8 +121,8 @@ namespace GameAttempt
 			foreach (Tile t in tileManager.ActiveLayer.Impassable)
 			{
 				collisons.Add(new Collider(Game.Content.Load<Texture2D>("Collison"),
-							  new Vector2(t.X * t.TileWidth, t.Y * t.TileHeight), 
-							  new Vector2(t.TileWidth, t.TileHeight)));
+							  new Vector2(t.X * t.TileWidth/2, t.Y * t.TileHeight/2), 
+							  new Vector2(t.TileWidth/2, t.TileHeight/2)));
 			}
 
 		}
@@ -142,12 +142,12 @@ namespace GameAttempt
 
 			foreach (Tile t in tileManager.ActiveLayer.Tiles)
 			{
-				Vector2 position = new Vector2(t.X * t.TileWidth,
-											   t.Y * t.TileHeight);
+				Vector2 position = new Vector2(t.X * t.TileWidth/2,
+											   t.Y * t.TileHeight/2);
 
 				spriteBatch.Draw(tSheet, new Rectangle(position.ToPoint(),
-													   new Point(t.TileWidth,
-													   t.TileHeight)),
+													   new Point(t.TileWidth/2,
+													   t.TileHeight/2)),
 
 
 										 new Rectangle((t.TRefs.TLocX * t.TileWidth),

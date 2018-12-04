@@ -56,19 +56,19 @@ namespace GameAttempt
 
 		public void MoveCamera()
 		{
-			if (Keyboard.GetState().IsKeyDown(Keys.W))
+			if (Keyboard.GetState().IsKeyDown(Keys.Up))
 			{
 				camInitPos.Y += camMovSpeed;
 			}
-			if (Keyboard.GetState().IsKeyDown(Keys.S))
+			if (Keyboard.GetState().IsKeyDown(Keys.Down))
 			{
 				camInitPos.Y -= camMovSpeed;
 			}
-			if (Keyboard.GetState().IsKeyDown(Keys.A))
+			if (Keyboard.GetState().IsKeyDown(Keys.Left))
 			{
 				camInitPos.X += camMovSpeed;
 			}
-			if (Keyboard.GetState().IsKeyDown(Keys.D))
+			if (Keyboard.GetState().IsKeyDown(Keys.Right))
 			{
 				camInitPos.X -= camMovSpeed;
 			}

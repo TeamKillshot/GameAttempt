@@ -32,11 +32,10 @@ namespace GameAttempt.Components
 
         public List<Player> playerList = new List<Player>();
 
-        //public bool IsConnected = false;
+        public bool IsConnected = false;
         public bool isColliding = false;
-        public bool canMove = true;
 
-        private int speed = 25;
+        private int speed = 120;
         #endregion
 
         public Player(Game _game)
@@ -52,8 +51,8 @@ namespace GameAttempt.Components
 
             player.Position = new Vector2(200, 200);
             player.Body = BodyFactory.CreateCircle(world, 1, 1);
-            player.Body.Restitution = 1f;
-            //player.Body.Mass = 1f;
+            //player.Body.Restitution = 1f;
+            //player.Body.Mass = 0.1f;
             player.Body.BodyType = BodyType.Dynamic;
 
             player.Position.X = player.Body.Position.X;
@@ -72,22 +71,22 @@ namespace GameAttempt.Components
             if (player.Name == "Player1" && state.IsConnected)
             {
                 player.index = PlayerIndex.One;
-                //player.IsConnected = true;
+                player.IsConnected = true;
             }
             else if (player.Name == "Player2" && state2.IsConnected)
             {
                 player.index = PlayerIndex.Two;
-                //player.IsConnected = true;
+                player.IsConnected = true;
             }
             else if (player.Name == "Players3" && !state.IsConnected)
             {
                 player.index = PlayerIndex.Three;
-                //player.IsConnected = true;
+                player.IsConnected = true;
             }
             else if (player.Name == "Player4" && !state.IsConnected)
             {
                 player.index = PlayerIndex.Four;
-                //player.IsConnected = true;
+                player.IsConnected = true;
             }
             #endregion
         }
@@ -110,25 +109,21 @@ namespace GameAttempt.Components
 
             foreach (Player player in playerList)
             {
-                player.world.Step(1f);
+                player.world.Step(5f);
 
                 foreach (Collider c in tiles.collisons)
                 {
                     if (player.Bounds.Intersects(c.GetCollidingRectangle()) && player.isColliding == false)
                     {
-                        player.canMove = false;
                         player.isColliding = true;
+                        player.Body.IgnoreGravity = true;
                         Collision(player);
-                    }
-                    else
-                    {
-                        player.isColliding = false;
-                        player.canMove = true;
                     }
                 }
 
-                if (player.isColliding == false && player.canMove == true)
+                if (player.isColliding == false)
                 {
+                    player.Body.IgnoreGravity = false;
                     PlayerMovement(player);
                 }
             }
@@ -136,10 +131,10 @@ namespace GameAttempt.Components
 
         public unsafe void PlayerMovement(Player player)
         {
-            if (player != null /*&& player.IsConnected == true*/)
+            if (player != null && player.IsConnected == true)
             {
                 player.previousPosition = player.Position;
-                player.Bounds = new Rectangle(player.Position.ToPoint(), new Point(88, 88));
+                player.Bounds = new Rectangle(player.Position.ToPoint(), new Point(64, 64));
 
                 player.Position.X = player.Body.Position.X;
                 player.Position.Y = player.Body.Position.Y;
@@ -163,15 +158,9 @@ namespace GameAttempt.Components
         {
             if (player.isColliding == true)
             {
-                player.Position = player.previousPosition;
+                player.Position = player.previousPosition - new Vector2(0, 1);
                 player.Body.Position = player.Position;
                 player.isColliding = false;
-                player.canMove = true;
-            }
-            else
-            {
-                player.isColliding = false;
-                player.canMove = true;
             }
         }
 
@@ -180,7 +169,7 @@ namespace GameAttempt.Components
             spritebatch.Begin();
             foreach (Player player in playerList)
             {
-                if (player.Sprite != null /*&& player.IsConnected == true*/)
+                if (player.Sprite != null && player.IsConnected == true)
                 {
                     spritebatch.Draw(player.Sprite, player.Bounds, Color.White);
                 }
