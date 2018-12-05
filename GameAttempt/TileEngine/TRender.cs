@@ -31,15 +31,15 @@ namespace GameAttempt
 		public List<Collider> collisons = new List<Collider>();	
 		List<TRef> tRefs = new List<TRef>();
 
-		int tsWidth;						// gets the width of tSheet
-		int tsHeight;                       // gets teh height of tSheet
+		public int tsWidth;						// gets the width of tSheet
+		public int tsHeight;                       // gets teh height of tSheet
 	
-		int tsRows = 11;					// how many sprites in a column
-		int tsColumns = 8;                  // how many Sprites in a Row
+		public int tsRows = 11;					// how many sprites in a column
+		public int tsColumns = 8;                  // how many Sprites in a Row
 		
-		int scale = 2;
+		public int scale = 2;
 
-		int[,] tileMap = new int[,]
+		public int[,] tileMap = new int[,]
 		{
 			{   0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  },
 			{   0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  },
@@ -106,14 +106,7 @@ namespace GameAttempt
 
 		public override void Initialize()
 		{
-
-			camera = new Camera(Vector2.Zero,
-							 new Vector2(tileMap.GetLength(1) * tsWidth,
-										 tileMap.GetLength(0) * tsHeight),
-							 GraphicsDevice.Viewport);
-
-			Game.Services.AddService<Camera>(camera);
-			base.Initialize();
+            base.Initialize();
 		}
 
 		public void SetupCollison()

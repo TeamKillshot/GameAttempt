@@ -1,6 +1,4 @@
 ﻿using Components;
-using FarseerPhysics.Dynamics;
-using FarseerPhysics.Factories;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -25,72 +23,88 @@ namespace GameAttempt.Components
         PlayerIndex index;
         Vector2 Position;
         Rectangle Bounds;
-        Body Body;
-        World world;
+        Camera camera;
         bool isCollided = false;
 
         public PlayerComponent(Game game): base(game)
         {
             GamePad.GetState(index);
             game.Components.Add(this);
-            world = new World(new Vector2(0, 9.8f));
             tiles = new TRender(game);
         }
 
         public override void Initialize()
         {
-            //player.world = new World(new Vector2(0, gravity));
-            //player.Body = BodyFactory.CreateCircle(world, 1, 1);
-
             Position = new Vector2(200, 300);
             speed = 15;
-            Body = BodyFactory.CreateBody(world, Position);
-            Body.BodyType = BodyType.Dynamic;
-            Position.X = Body.Position.X;
-            Position.Y = Body.Position.Y;
-            //Bounds = new Rectangle(Position.ToPoint(), new Point(64, 64));
             ID = (int)index;
-            //previousPosition = Position;
-            Sprite = Game.Content.Load<Texture2D>("Sprites/Mike");
+
+            camera = new Camera(Vector2.Zero,
+            new Vector2(tiles.tileMap.GetLength(1) * tiles.tsWidth,
+             tiles.tileMap.GetLength(0) * tiles.tsHeight),
+                GraphicsDevice.Viewport);
+
+            Game.Services.AddService<Camera>(camera);
 
             base.Initialize();
         }
 
-        public override void Update(GameTime gameTime)
+        protected override void LoadContent()
         {
-            world.Step(5f);
-
-            PlayerMove();
-
-            foreach (Collider c in tiles.collisons)
+            switch(index)
             {
-                if (Bounds.Intersects(c.collider) && isCollided == false)
-                {
-                    isCollided = true;
-                    Body.IgnoreGravity = true;
-                    Collision();
-                }
-                else if (Bounds.Y >= c.collider.Y)
-                {
-                    Body.IgnoreGravity = false;
-                    Position = previousPosition;
-                }
+                case PlayerIndex.One:
+                    Sprite = Game.Content.Load<Texture2D>("Sprites/Mike");
+                    ID = 1;
+                    break;
 
-                if (isCollided == false)
-                {
-                    PlayerMove();
-                }
+                case PlayerIndex.Two:
+                    Sprite = Game.Content.Load<Texture2D>("Sprites/Spike");
+                    ID = 2;
+                    break;
 
-                base.Update(gameTime);
+                case PlayerIndex.Three:
+                    Sprite = Game.Content.Load<Texture2D>("Sprites/Floor");
+                    ID = 3;
+                    break;
+
+                case PlayerIndex.Four:
+                    Sprite = Game.Content.Load<Texture2D>("Sprites/Collision");
+                    ID = 4;
+                    break;
             }
         }
 
-        public void Collision()
+        public override void Update(GameTime gameTime)
         {
-            Position.X = previousPosition.X;
-            Position.Y = previousPosition.Y;
-            Body.Position = Position;
-            isCollided = false;
+            if (InputManager.IsKeyHeld(Keys.A))
+            {
+                Position -= new Vector2(20, 0);
+            }
+            if (InputManager.IsKeyHeld(Keys.D))
+            {
+                Position += new Vector2(20, 0);
+            }
+            if(InputManager.IsKeyPressed(Keys.W))
+            {
+                Position -= new Vector2(0, 25);
+            }
+
+            Bounds = new Rectangle(Position.ToPoint(), new Point(64, 64));
+            previousPosition = Position;
+            Position.Y++;
+
+            //PlayerMove();
+
+            foreach (Collider c in tiles.collisons)
+            {
+                if (Bounds.Intersects(c.GetCollidingRectangle()) && isCollided == false)
+                {
+                    Position = previousPosition;
+                }
+            }
+
+            base.Update(gameTime);
         }
 
         public void PlayerMove()
@@ -98,25 +112,13 @@ namespace GameAttempt.Components
             if (this != null /*&& player.isConnected == true*/)
             {
                 Bounds = new Rectangle(Position.ToPoint(), new Point(64, 64));
-                Position.X = Body.Position.X;
-                Position.Y = Body.Position.Y;
 
                 GamePadState state = GamePad.GetState(index);
-                Body.ApplyForce(state.ThumbSticks.Left);
+                Position *= (state.ThumbSticks.Left);
 
                 if (InputManager.IsButtonPressed(Buttons.A))
                 {
                     //player.Body.ApplyLinearImpulse(player.Jump);
-                }
-                previousPosition = Position;
-
-                if (InputManager.IsKeyPressed(Keys.A))
-                {
-                    Body.ApplyForce(new Vector2(-200, 0) * speed); ;
-                }
-                if (InputManager.IsKeyHeld(Keys.D))
-                {
-                    Body.ApplyForce(new Vector2(200, 0) * speed); ;
                 }
             }
         }
@@ -127,7 +129,7 @@ namespace GameAttempt.Components
             //Camera Cam = Game.Services.GetService<Camera>();
 
             spriteBatch.Begin(/*SpriteSortMode.Immediate, BlendState.AlphaBlend, null, null, null, null, Cam.CurrentCamTranslation*/);
-            spriteBatch.Draw(Sprite, Position, Color.White);
+            spriteBatch.Draw(Sprite, Bounds, Color.White);
             spriteBatch.End();
 
             base.Draw(gameTime);

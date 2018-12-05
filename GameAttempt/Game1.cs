@@ -19,21 +19,6 @@ namespace GameAttempt
         TRender tiles;
         PlayerComponent player;
 
-        #region Properties and Variables for Menu
-        //Dictionary<string, Texture2D> menuTextures = new Dictionary<string, Texture2D>();
-
-        //List<Menu> menuChoices = new List<Menu>();
-        //Menu play;
-        //Menu scores;
-        //Menu exit;
-
-        //private _activeScreen _current;
-        //Scene menuScene;
-        //Scene playScene;
-        //Scene activeScene;
-
-        #endregion
-
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -50,6 +35,9 @@ namespace GameAttempt
 
         protected override void Initialize()
         {
+            spriteBatch = new SpriteBatch(GraphicsDevice);
+            this.Services.AddService<SpriteBatch>(spriteBatch);
+
             base.Initialize();
         }
 
@@ -81,9 +69,6 @@ namespace GameAttempt
             //activeScene = playScene;
 
             #endregion
-
-            spriteBatch = new SpriteBatch(GraphicsDevice);
-            this.Services.AddService<SpriteBatch>(spriteBatch);
         }
         protected override void UnloadContent()
         {
