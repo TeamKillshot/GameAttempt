@@ -4,11 +4,11 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/S00171335/Documents/GitHub/GameAttempt/GameAttempt/Content/Sprites/Floor.png</File>
-    <File>C:/Users/S00171335/Documents/GitHub/GameAttempt/GameAttempt/Content/Sprites/Mike.png</File>
-    <File>C:/Users/S00171335/Documents/GitHub/GameAttempt/GameAttempt/Content/Sprites/Spike.png</File>
-    <File>C:/Users/S00171335/Documents/GitHub/GameAttempt/GameAttempt/Content/Sprites/Collison.png</File>
-    <File>C:/Users/S00171335/Documents/GitHub/GameAttempt/GameAttempt/Content/Sprites/tank tiles 64 x 64.png</File>
-    <File>C:/Users/S00171335/Documents/GitHub/GameAttempt/GameAttempt/Content/Sprites/CharacterSpriteSheet.png</File>
+    <File>C:/Users/thats/source/repos/GameAttempt/GameAttempt/Content/Sprites/Floor.png</File>
+    <File>C:/Users/thats/source/repos/GameAttempt/GameAttempt/Content/Sprites/Mike.png</File>
+    <File>C:/Users/thats/source/repos/GameAttempt/GameAttempt/Content/Sprites/Spike.png</File>
+    <File>C:/Users/thats/source/repos/GameAttempt/GameAttempt/Content/Sprites/Collison.png</File>
+    <File>C:/Users/thats/source/repos/GameAttempt/GameAttempt/Content/Sprites/tank tiles 64 x 64.png</File>
+    <File>C:/Users/thats/source/repos/GameAttempt/GameAttempt/Content/Sprites/CharacterSpriteSheet.png</File>
   </SourceFiles>
 </SourceFileCollection>
