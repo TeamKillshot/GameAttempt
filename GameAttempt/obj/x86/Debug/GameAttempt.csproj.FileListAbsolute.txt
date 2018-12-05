@@ -112,3 +112,50 @@ C:\Users\thats\source\repos\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Conten
 C:\Users\thats\source\repos\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Content\MenuTextures\MenuTexture2_Play.xnb
 C:\Users\thats\source\repos\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Content\MenuTextures\MenuTexture3_HighScore.xnb
 C:\Users\thats\source\repos\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Content\MenuTextures\MenuTexture4_Exit.xnb
+C:\Users\S00171335\Documents\GitHub\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Content\MenuTextures\MenuTexture1_Background.xnb
+C:\Users\S00171335\Documents\GitHub\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Content\MenuTextures\MenuTexture2_Play.xnb
+C:\Users\S00171335\Documents\GitHub\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Content\MenuTextures\MenuTexture3_HighScore.xnb
+C:\Users\S00171335\Documents\GitHub\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Content\MenuTextures\MenuTexture4_Exit.xnb
+C:\Users\S00171335\Documents\GitHub\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Content\Content\Sprites\CharacterSpriteSheet.xnb
+C:\Users\S00171335\Documents\GitHub\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Content\Content\Sprites\Collison.xnb
+C:\Users\S00171335\Documents\GitHub\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Content\Content\Sprites\Floor.xnb
+C:\Users\S00171335\Documents\GitHub\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Content\Content\Sprites\Mike.xnb
+C:\Users\S00171335\Documents\GitHub\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Content\Content\Sprites\Spike.xnb
+C:\Users\S00171335\Documents\GitHub\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Content\Content\Sprites\tank tiles 64 x 64.xnb
+C:\Users\S00171335\Documents\GitHub\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Content\Content\Collison.xnb
+C:\Users\S00171335\Documents\GitHub\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Content\Content\TileSheetOne.xnb
+C:\Users\S00171335\Documents\GitHub\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Content\Collison.xnb
+C:\Users\S00171335\Documents\GitHub\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Content\TileSheetOne.xnb
+C:\Users\S00171335\Documents\GitHub\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Content\Sprites\CharacterSpriteSheet.xnb
+C:\Users\S00171335\Documents\GitHub\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Content\Sprites\Collison.xnb
+C:\Users\S00171335\Documents\GitHub\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Content\Sprites\Floor.xnb
+C:\Users\S00171335\Documents\GitHub\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Content\Sprites\Mike.xnb
+C:\Users\S00171335\Documents\GitHub\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Content\Sprites\Spike.xnb
+C:\Users\S00171335\Documents\GitHub\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Content\Sprites\tank tiles 64 x 64.xnb
+C:\Users\S00171335\Documents\GitHub\GameAttempt\GameAttempt\bin\Windows\x86\Debug\GameAttempt.exe
+C:\Users\S00171335\Documents\GitHub\GameAttempt\GameAttempt\bin\Windows\x86\Debug\GameAttempt.pdb
+C:\Users\S00171335\Documents\GitHub\GameAttempt\GameAttempt\bin\Windows\x86\Debug\FarseerPhysics MonoGame.dll
+C:\Users\S00171335\Documents\GitHub\GameAttempt\GameAttempt\bin\Windows\x86\Debug\MonoGame.Framework.dll
+C:\Users\S00171335\Documents\GitHub\GameAttempt\GameAttempt\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll
+C:\Users\S00171335\Documents\GitHub\GameAttempt\GameAttempt\bin\Windows\x86\Debug\SharpDX.dll
+C:\Users\S00171335\Documents\GitHub\GameAttempt\GameAttempt\bin\Windows\x86\Debug\SharpDX.XAudio2.dll
+C:\Users\S00171335\Documents\GitHub\GameAttempt\GameAttempt\bin\Windows\x86\Debug\SharpDX.DXGI.dll
+C:\Users\S00171335\Documents\GitHub\GameAttempt\GameAttempt\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll
+C:\Users\S00171335\Documents\GitHub\GameAttempt\GameAttempt\bin\Windows\x86\Debug\SharpDX.Direct2D1.dll
+C:\Users\S00171335\Documents\GitHub\GameAttempt\GameAttempt\bin\Windows\x86\Debug\SharpDX.XInput.dll
+C:\Users\S00171335\Documents\GitHub\GameAttempt\GameAttempt\bin\Windows\x86\Debug\SharpDX.Direct3D9.dll
+C:\Users\S00171335\Documents\GitHub\GameAttempt\GameAttempt\bin\Windows\x86\Debug\FarseerPhysics MonoGame.pdb
+C:\Users\S00171335\Documents\GitHub\GameAttempt\GameAttempt\bin\Windows\x86\Debug\MonoGame.Framework.xml
+C:\Users\S00171335\Documents\GitHub\GameAttempt\GameAttempt\bin\Windows\x86\Debug\SharpDX.MediaFoundation.xml
+C:\Users\S00171335\Documents\GitHub\GameAttempt\GameAttempt\bin\Windows\x86\Debug\SharpDX.xml
+C:\Users\S00171335\Documents\GitHub\GameAttempt\GameAttempt\bin\Windows\x86\Debug\SharpDX.XAudio2.xml
+C:\Users\S00171335\Documents\GitHub\GameAttempt\GameAttempt\bin\Windows\x86\Debug\SharpDX.DXGI.xml
+C:\Users\S00171335\Documents\GitHub\GameAttempt\GameAttempt\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
+C:\Users\S00171335\Documents\GitHub\GameAttempt\GameAttempt\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
+C:\Users\S00171335\Documents\GitHub\GameAttempt\GameAttempt\bin\Windows\x86\Debug\SharpDX.XInput.xml
+C:\Users\S00171335\Documents\GitHub\GameAttempt\GameAttempt\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
+C:\Users\S00171335\Documents\GitHub\GameAttempt\GameAttempt\obj\x86\Debug\GameAttempt.csprojAssemblyReference.cache
+C:\Users\S00171335\Documents\GitHub\GameAttempt\GameAttempt\obj\x86\Debug\GameAttempt.csproj.CoreCompileInputs.cache
+C:\Users\S00171335\Documents\GitHub\GameAttempt\GameAttempt\obj\x86\Debug\GameAttempt.csproj.CopyComplete
+C:\Users\S00171335\Documents\GitHub\GameAttempt\GameAttempt\obj\x86\Debug\GameAttempt.exe
+C:\Users\S00171335\Documents\GitHub\GameAttempt\GameAttempt\obj\x86\Debug\GameAttempt.pdb

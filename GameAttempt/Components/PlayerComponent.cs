@@ -39,21 +39,43 @@ namespace GameAttempt.Components
 
         public override void Initialize()
         {
-            //player.world = new World(new Vector2(0, gravity));
-            //player.Body = BodyFactory.CreateCircle(world, 1, 1);
-
             Position = new Vector2(200, 300);
             speed = 15;
             Body = BodyFactory.CreateBody(world, Position);
             Body.BodyType = BodyType.Dynamic;
             Position.X = Body.Position.X;
             Position.Y = Body.Position.Y;
-            //Bounds = new Rectangle(Position.ToPoint(), new Point(64, 64));
             ID = (int)index;
-            //previousPosition = Position;
-            Sprite = Game.Content.Load<Texture2D>("Sprites/Mike");
 
             base.Initialize();
+        }
+
+        protected override void LoadContent()
+        {
+            switch(index)
+            {
+                case PlayerIndex.One:
+                    Sprite = Game.Content.Load<Texture2D>("Sprites/Mike");
+                    ID = 1;
+                    break;
+
+                case PlayerIndex.Two:
+                    Sprite = Game.Content.Load<Texture2D>("Sprites/Spike");
+                    ID = 2;
+                    break;
+
+                case PlayerIndex.Three:
+                    Sprite = Game.Content.Load<Texture2D>("Sprites/Floor");
+                    ID = 3;
+                    break;
+
+                case PlayerIndex.Four:
+                    Sprite = Game.Content.Load<Texture2D>("Sprites/Collision");
+                    ID = 4;
+                    break;
+            }
+
+            base.LoadContent();
         }
 
         public override void Update(GameTime gameTime)
@@ -124,9 +146,9 @@ namespace GameAttempt.Components
         public override void Draw(GameTime gameTime)
         {
             SpriteBatch spriteBatch = Game.Services.GetService<SpriteBatch>();
-            //Camera Cam = Game.Services.GetService<Camera>();
+            Camera Cam = Game.Services.GetService<Camera>();
 
-            spriteBatch.Begin(/*SpriteSortMode.Immediate, BlendState.AlphaBlend, null, null, null, null, Cam.CurrentCamTranslation*/);
+            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, null, null, null, null, Cam.CurrentCamTranslation);
             spriteBatch.Draw(Sprite, Position, Color.White);
             spriteBatch.End();
 

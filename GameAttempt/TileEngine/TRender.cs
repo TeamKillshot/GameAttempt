@@ -106,14 +106,14 @@ namespace GameAttempt
 
 		public override void Initialize()
 		{
-
+            
 			camera = new Camera(Vector2.Zero,
 							 new Vector2(tileMap.GetLength(1) * tsWidth,
 										 tileMap.GetLength(0) * tsHeight),
 							 GraphicsDevice.Viewport);
 
-			Game.Services.AddService<Camera>(camera);
-			base.Initialize();
+            Game.Services.AddService<Camera>(camera);
+            base.Initialize();
 		}
 
 		public void SetupCollison()
@@ -137,7 +137,7 @@ namespace GameAttempt
 		public override void Draw(GameTime gameTime)
 		{
 			SpriteBatch spriteBatch = Game.Services.GetService<SpriteBatch>();
-			Camera Cam = Game.Services.GetService<Camera>();
+            Camera Cam = Game.Services.GetService<Camera>();
 			spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, null, null, null, null, Cam.CurrentCamTranslation);
 
 			foreach (Tile t in tileManager.ActiveLayer.Tiles)
