@@ -66,11 +66,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\Collison.png" />
-    <Content Include="Content\MenuTextures\MenuTexture1_Background.png" />
-    <Content Include="Content\MenuTextures\MenuTexture2_Play.png" />
-    <Content Include="Content\MenuTextures\MenuTexture3_HighScore.jpg" />
-    <Content Include="Content\MenuTextures\MenuTexture4_Exit.jpg" />
     <Content Include="Content\Sprites\CharacterSpriteSheet.png" />
     <Content Include="Content\Sprites\Collison.png" />
     <Content Include="Content\Sprites\Floor.png" />
@@ -78,7 +73,6 @@
     <Content Include="Content\Sprites\Spike.png" />
     <Content Include="Content\Sprites\tank tiles 64 x 64.png" />
     <Content Include="Content\Sprites\TileSheetOne.png" />
-    <Content Include="Content\TileSheetOne.png" />
     <Content Include="Icon.ico" />
   </ItemGroup>
   <ItemGroup>
