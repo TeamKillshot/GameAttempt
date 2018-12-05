@@ -88,13 +88,13 @@ namespace GameAttempt.Components
             }
             if(InputManager.IsKeyPressed(Keys.W) && isFalling == false)
             {
-                Position -= new Vector2(0, 25);
+                Position -= new Vector2(0, 125);
                 isFalling = true;
             }
 
             Bounds = new Rectangle(Position.ToPoint(), new Point(64, 64));
             previousPosition = Position;
-            Position.Y++;
+            Position.Y += 7;
 
             //PlayerMove();
 
@@ -102,9 +102,19 @@ namespace GameAttempt.Components
             {
                 if (Bounds.Intersects(c.GetCollidingRectangle()) && isCollided == false)
                 {
-                    Position = previousPosition;
+                    Position.Y = previousPosition.Y;
                     isFalling = false;
                 }
+
+                if (Bounds.Right <= c.GetCollidingRectangle().Left)
+                {
+                    Position.X = previousPosition.X;
+                }
+
+                //if (Bounds.Left < c.GetCollidingRectangle().Right)
+                //{
+                //    Position = previousPosition;
+                //}
             }
 
             base.Update(gameTime);
