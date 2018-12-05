@@ -25,6 +25,7 @@ namespace GameAttempt.Components
         Rectangle Bounds;
         Camera camera;
         bool isCollided = false;
+        bool isFalling = true;
 
         public PlayerComponent(Game game): base(game)
         {
@@ -85,9 +86,10 @@ namespace GameAttempt.Components
             {
                 Position += new Vector2(20, 0);
             }
-            if(InputManager.IsKeyPressed(Keys.W))
+            if(InputManager.IsKeyPressed(Keys.W) && isFalling == false)
             {
                 Position -= new Vector2(0, 25);
+                isFalling = true;
             }
 
             Bounds = new Rectangle(Position.ToPoint(), new Point(64, 64));
@@ -101,6 +103,7 @@ namespace GameAttempt.Components
                 if (Bounds.Intersects(c.GetCollidingRectangle()) && isCollided == false)
                 {
                     Position = previousPosition;
+                    isFalling = false;
                 }
             }
 
