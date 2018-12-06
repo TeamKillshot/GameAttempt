@@ -37,7 +37,7 @@ namespace GameAttempt.Components
         public override void Initialize()
         {
             Position = new Vector2(200, 300);
-            speed = 15;
+            speed = 9;
             ID = (int)index;
 
             camera = new Camera(Vector2.Zero,
@@ -80,41 +80,43 @@ namespace GameAttempt.Components
         {
             if (InputManager.IsKeyHeld(Keys.A))
             {
-                Position -= new Vector2(20, 0);
+                Position -= new Vector2(9, 0);
             }
             if (InputManager.IsKeyHeld(Keys.D))
             {
-                Position += new Vector2(20, 0);
+                Position += new Vector2(9, 0);
             }
-            if(InputManager.IsKeyPressed(Keys.W) && isFalling == false)
+            if(InputManager.IsKeyPressed(Keys.W) || InputManager.IsButtonPressed(Buttons.A) && isFalling == false)
             {
                 Position -= new Vector2(0, 125);
                 isFalling = true;
             }
 
+            GamePadState state = GamePad.GetState(index);
+            Position.X += state.ThumbSticks.Left.X * speed;
+
             Bounds = new Rectangle(Position.ToPoint(), new Point(64, 64));
             previousPosition = Position;
-            Position.Y += 7;
+            Position.Y += 4;
 
             //PlayerMove();
 
             foreach (Collider c in tiles.collisons)
             {
-                if (Bounds.Intersects(c.GetCollidingRectangle()) && isCollided == false)
+                if (Bounds.Intersects(c.collider) && isCollided == false)
                 {
-                    Position.Y = previousPosition.Y;
+                    Position = previousPosition;
                     isFalling = false;
-                }
 
-                if (Bounds.Right <= c.GetCollidingRectangle().Left)
-                {
-                    Position.X = previousPosition.X;
+                    if(Bounds.Left >= c.collider.Right)
+                    {
+                        Position = previousPosition;
+                    }
+                    else if(Bounds.Right <= c.collider.Left)
+                    {
+                        Position = previousPosition;
+                    }
                 }
-
-                //if (Bounds.Left < c.GetCollidingRectangle().Right)
-                //{
-                //    Position = previousPosition;
-                //}
             }
 
             base.Update(gameTime);
