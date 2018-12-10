@@ -136,7 +136,7 @@ namespace GameAttempt.Components
             Camera Cam = Game.Services.GetService<Camera>();
 
             spriteBatch.Begin(/*SpriteSortMode.Immediate, BlendState.AlphaBlend, null, null, null, null, Cam.CurrentCamTranslation*/);
-            spriteBatch.Draw(Sprite, Bounds, Color.White);
+            spriteBatch.Draw(Sprite.SpriteImage, Bounds, Color.White);
             spriteBatch.End();
 
             base.Draw(gameTime);
