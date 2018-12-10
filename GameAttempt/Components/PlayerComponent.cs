@@ -16,7 +16,7 @@ namespace GameAttempt.Components
         Vector2 previousPosition { get; set; }
         Texture2D Sprite { get; set; }
         public int ID { get; set; }
-
+		SpriteEffects s;
         //variables
         int speed;
         TRender tiles;
@@ -46,7 +46,7 @@ namespace GameAttempt.Components
                 GraphicsDevice.Viewport);
 
             Game.Services.AddService<Camera>(camera);
-
+			Game.Services.AddService<SpriteEffects>(s);
             base.Initialize();
         }
 
@@ -78,12 +78,15 @@ namespace GameAttempt.Components
 
         public override void Update(GameTime gameTime)
         {
+			camera.FollowCharacter(Position, GraphicsDevice.Viewport);
             if (InputManager.IsKeyHeld(Keys.A))
             {
+				s = SpriteEffects.None;
                 Position -= new Vector2(9, 0);
             }
             if (InputManager.IsKeyHeld(Keys.D))
             {
+				s = SpriteEffects.FlipHorizontally;
                 Position += new Vector2(9, 0);
             }
             if(InputManager.IsKeyPressed(Keys.W) || InputManager.IsButtonPressed(Buttons.A) && isFalling == false)
@@ -141,9 +144,9 @@ namespace GameAttempt.Components
         public override void Draw(GameTime gameTime)
         {
             SpriteBatch spriteBatch = Game.Services.GetService<SpriteBatch>();
-            //Camera Cam = Game.Services.GetService<Camera>();
+            Camera Cam = Game.Services.GetService<Camera>();
 
-            spriteBatch.Begin(/*SpriteSortMode.Immediate, BlendState.AlphaBlend, null, null, null, null, Cam.CurrentCamTranslation*/);
+            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, null, null, null, null, Cam.CurrentCamTranslation);
             spriteBatch.Draw(Sprite, Bounds, Color.White);
             spriteBatch.End();
 

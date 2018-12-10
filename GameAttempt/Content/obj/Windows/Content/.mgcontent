@@ -4,18 +4,14 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/Alex/source/repos/GameAttempt/GameAttempt/Content/Collison.png</File>
-    <File>C:/Users/Alex/source/repos/GameAttempt/GameAttempt/Content/Sprites/Floor.png</File>
-    <File>C:/Users/Alex/source/repos/GameAttempt/GameAttempt/Content/Sprites/Mike.png</File>
-    <File>C:/Users/Alex/source/repos/GameAttempt/GameAttempt/Content/Sprites/Spike.png</File>
-    <File>C:/Users/Alex/source/repos/GameAttempt/GameAttempt/Content/TileSheetOne.png</File>
-    <File>C:/Users/Alex/source/repos/GameAttempt/GameAttempt/Content/Sprites/Collison.png</File>
-    <File>C:/Users/Alex/source/repos/GameAttempt/GameAttempt/Content/Sprites/tank tiles 64 x 64.png</File>
-    <File>C:/Users/Alex/source/repos/GameAttempt/GameAttempt/Content/Sprites/CharacterSpriteSheet.png</File>
+    <File>C:/Users/Alex/Documents/GitHub/GameAttempt/GameAttempt/Content/Sprites/Floor.png</File>
+    <File>C:/Users/Alex/Documents/GitHub/GameAttempt/GameAttempt/Content/Sprites/Mike.png</File>
+    <File>C:/Users/Alex/Documents/GitHub/GameAttempt/GameAttempt/Content/Sprites/Spike.png</File>
+    <File>C:/Users/Alex/Documents/GitHub/GameAttempt/GameAttempt/Content/Sprites/Collison.png</File>
+    <File>C:/Users/Alex/Documents/GitHub/GameAttempt/GameAttempt/Content/Sprites/tank tiles 64 x 64.png</File>
+    <File>C:/Users/Alex/Documents/GitHub/GameAttempt/GameAttempt/Content/Sprites/CharacterSpriteSheet.png</File>
   </SourceFiles>
   <DestFiles>
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
