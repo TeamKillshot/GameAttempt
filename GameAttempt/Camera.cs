@@ -77,7 +77,7 @@ namespace GameAttempt
 		public void FollowCharacter(Vector2 characterPos, Viewport v)
 		{
 			CamInitPos = characterPos - new Vector2(v.Width / 2, v.Height / 2) / scale;
-			CamInitPos = Vector2.Clamp(CamInitPos, Vector2.Zero, WorldBound / scale 
+			CamInitPos = -Vector2.Clamp(CamInitPos, Vector2.Zero, WorldBound / scale 
 						 - new Vector2(v.Width, v.Height) / scale);
 		}
 	}

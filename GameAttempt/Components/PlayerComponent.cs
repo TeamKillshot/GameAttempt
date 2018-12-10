@@ -16,7 +16,7 @@ namespace GameAttempt.Components
         Vector2 previousPosition { get; set; }
         AnimatedSprite Sprite { get; set; }
         public int ID { get; set; }
-
+		SpriteEffects s;
         //variables
         int speed;
         TRender tiles;
@@ -51,7 +51,7 @@ namespace GameAttempt.Components
                 GraphicsDevice.Viewport);
 
             Game.Services.AddService<Camera>(camera);
-
+			Game.Services.AddService<SpriteEffects>(s);
             base.Initialize();
         }
 
@@ -89,14 +89,15 @@ namespace GameAttempt.Components
 
         public override void Update(GameTime gameTime)
         {
-            _current = PlayerState.STILL;
             if (InputManager.IsKeyHeld(Keys.A))
             {
+				s = SpriteEffects.None;
                 Position -= new Vector2(9, 0);
                 _current = PlayerState.WALK;
             }
             if (InputManager.IsKeyHeld(Keys.D))
             {
+				s = SpriteEffects.FlipHorizontally;
                 Position += new Vector2(9, 0);
                 _current = PlayerState.WALK;
             }
@@ -132,24 +133,10 @@ namespace GameAttempt.Components
         public override void Draw(GameTime gameTime)
         {
             SpriteBatch spriteBatch = Game.Services.GetService<SpriteBatch>();
-            //Camera Cam = Game.Services.GetService<Camera>();
+            Camera Cam = Game.Services.GetService<Camera>();
 
             spriteBatch.Begin(/*SpriteSortMode.Immediate, BlendState.AlphaBlend, null, null, null, null, Cam.CurrentCamTranslation*/);
-            switch (_current)
-            {
-                case PlayerState.STILL:
-                    Sprite = new AnimatedSprite(Game,
-                        Game.Content.Load<Texture2D>("Sprites/Mike"), Position, 1, Bounds);
-                    spriteBatch.Draw(Sprite.SpriteImage, Bounds, Color.White);
-                    break;
-                case PlayerState.WALK:
-                    spriteBatch.Draw(Sprite.SpriteImage, Bounds, Color.White);
-                    break;
-                case PlayerState.JUMP:
-                    spriteBatch.Draw(Sprite.SpriteImage, Bounds, Color.White);
-                    break;
-            }
-            //spriteBatch.Draw(PlayerRect, Bounds, Color.White);
+            spriteBatch.Draw(Sprite, Bounds, Color.White);
             spriteBatch.End();
 
             base.Draw(gameTime);

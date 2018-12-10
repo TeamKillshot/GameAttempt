@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Alex/source/repos/GameAttempt/GameAttempt/Content/Sprites/tank tiles 64 x 64.png</SourceFile>
-  <SourceTime>2018-11-29T19:19:28.3304208+00:00</SourceTime>
-  <DestFile>C:/Users/Alex/source/repos/GameAttempt/GameAttempt/Content/bin/Windows/Content/Sprites/tank tiles 64 x 64.xnb</DestFile>
-  <DestTime>2018-11-29T19:26:52.1375273+00:00</DestTime>
+  <SourceFile>C:/Users/Alex/Documents/GitHub/GameAttempt/GameAttempt/Content/Sprites/tank tiles 64 x 64.png</SourceFile>
+  <SourceTime>2018-12-10T13:54:26.3505171+00:00</SourceTime>
+  <DestFile>C:/Users/Alex/Documents/GitHub/GameAttempt/GameAttempt/Content/bin/Windows/Content/Sprites/tank tiles 64 x 64.xnb</DestFile>
+  <DestTime>2018-12-10T14:47:47.8461479+00:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-09-23T22:55:52+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
