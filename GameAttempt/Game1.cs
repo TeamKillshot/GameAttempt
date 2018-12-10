@@ -1,5 +1,4 @@
 ﻿using Components;
-using Components.SceneManager;
 using FarseerPhysics.Collision;
 using FarseerPhysics.Dynamics;
 using FarseerPhysics.Factories;
@@ -18,23 +17,7 @@ namespace GameAttempt
         SpriteBatch spriteBatch;
 
         TRender tiles;
-        public Player player, player1, player2, player3, player4;
-        public List<Player> playersList = new List<Player>();
-
-        #region Properties and Variables for Menu
-        //Dictionary<string, Texture2D> menuTextures = new Dictionary<string, Texture2D>();
-
-        //List<Menu> menuChoices = new List<Menu>();
-        //Menu play;
-        //Menu scores;
-        //Menu exit;
-
-        //private _activeScreen _current;
-        //Scene menuScene;
-        //Scene playScene;
-        //Scene activeScene;
-
-        #endregion
+        PlayerComponent player;
 
         public Game1()
         {
@@ -46,46 +29,20 @@ namespace GameAttempt
             graphics.ApplyChanges();
 
             new InputManager(this);
-            player = new Player(this);
+            player = new PlayerComponent(this);
             tiles = new TRender(this);
         }
 
         protected override void Initialize()
         {
+            spriteBatch = new SpriteBatch(GraphicsDevice);
+            this.Services.AddService<SpriteBatch>(spriteBatch);
+
             base.Initialize();
         }
 
         protected override void LoadContent()
         {
-            #region Player Instances
-            player1 = new Player(this);
-            player1.Name = "Player1";
-            player1.Sprite = Content.Load<Texture2D>("Sprites/Mike");
-
-            player2 = new Player(this);
-            player2.Name = "Player2";
-            player2.Sprite = Content.Load<Texture2D>("Sprites/Spike");
-
-            player3 = new Player(this);
-            player3.Name = "Player3";
-
-            player4 = new Player(this);
-            player4.Name = "Player4";
-
-            #endregion
-
-            playersList.Add(player1);
-            playersList.Add(player2);
-            playersList.Add(player3);
-            playersList.Add(player4);
-
-            //world = new World(new Vector2(0, gravity));
-
-            foreach (Player player in playersList)
-            {
-                player.GetPlayerIndex(player);
-                player.GetPlayerPosition(player);
-            }
 
             #region Load Menu Textures and Scenes
 
@@ -112,9 +69,6 @@ namespace GameAttempt
             //activeScene = playScene;
 
             #endregion
-
-            spriteBatch = new SpriteBatch(GraphicsDevice);
-            this.Services.AddService<SpriteBatch>(spriteBatch);
         }
         protected override void UnloadContent()
         {
@@ -141,16 +95,12 @@ namespace GameAttempt
 
             #endregion
 
-            player.Update(gameTime, playersList, tiles);
-
             base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-
-            player.Draw(spriteBatch, playersList);
 
             #region Draw Menu
             //switch (_current)
