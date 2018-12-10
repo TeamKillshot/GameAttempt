@@ -120,18 +120,13 @@ namespace GameAttempt
 
 		}
 
-		public override void Update(GameTime gameTime)
-		{
-			Camera Cam = Game.Services.GetService<Camera>();
-			Cam.MoveCamera();
-			base.Update(gameTime);
-		}
-
 		public override void Draw(GameTime gameTime)
 		{
 			SpriteBatch spriteBatch = Game.Services.GetService<SpriteBatch>();
 			Camera Cam = Game.Services.GetService<Camera>();
-			spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, null, null, null, null, Cam.CurrentCamTranslation);
+			spriteBatch.Begin(SpriteSortMode.Immediate,
+							  BlendState.AlphaBlend, null, null, 
+							  null, null, Cam.CurrentCamTranslation);
 
 			foreach (Tile t in tileManager.ActiveLayer.Tiles)
 			{

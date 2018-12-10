@@ -41,9 +41,9 @@ namespace GameAttempt.Components
             ID = (int)index;
 
             camera = new Camera(Vector2.Zero,
-            new Vector2(tiles.tileMap.GetLength(1) * tiles.tsWidth,
-             tiles.tileMap.GetLength(0) * tiles.tsHeight),
-                GraphicsDevice.Viewport);
+							    new Vector2(tiles.tileMap.GetLength(1) * tiles.tsWidth,
+								tiles.tileMap.GetLength(0) * tiles.tsHeight),
+								 GraphicsDevice.Viewport);
 
             Game.Services.AddService<Camera>(camera);
 
@@ -78,7 +78,8 @@ namespace GameAttempt.Components
 
         public override void Update(GameTime gameTime)
         {
-            if (InputManager.IsKeyHeld(Keys.A))
+			camera.FollowCharacter(Position, GraphicsDevice.Viewport);
+			if (InputManager.IsKeyHeld(Keys.A))
             {
                 Position -= new Vector2(9, 0);
             }
@@ -136,14 +137,15 @@ namespace GameAttempt.Components
                     //player.Body.ApplyLinearImpulse(player.Jump);
                 }
             }
+			
         }
 
         public override void Draw(GameTime gameTime)
         {
             SpriteBatch spriteBatch = Game.Services.GetService<SpriteBatch>();
-            //Camera Cam = Game.Services.GetService<Camera>();
+            Camera Cam = Game.Services.GetService<Camera>();
 
-            spriteBatch.Begin(/*SpriteSortMode.Immediate, BlendState.AlphaBlend, null, null, null, null, Cam.CurrentCamTranslation*/);
+            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, null, null, null, null, Cam.CurrentCamTranslation);
             spriteBatch.Draw(Sprite, Bounds, Color.White);
             spriteBatch.End();
 

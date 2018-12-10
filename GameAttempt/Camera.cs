@@ -39,10 +39,10 @@ namespace GameAttempt
 			get { return worldBound * scale; }
 			set { worldBound = value; }
 		}
-		public Matrix CurrentCamTranslation 
+		public Matrix CurrentCamTranslation  // Sets the initial camera
 		{ get
 			{
-				return Matrix.CreateTranslation(new Vector3(camInitPos, 0)) * 
+				return Matrix.CreateTranslation(new Vector3(camInitPos , 0)) * 
 					   Matrix.CreateScale(new Vector3(scale, scale, 0));
 			}
 		}
@@ -54,31 +54,11 @@ namespace GameAttempt
 			View = view;
 		}
 
-		public void MoveCamera()
-		{
-			if (Keyboard.GetState().IsKeyDown(Keys.Up))
-			{
-				camInitPos.Y += camMovSpeed;
-			}
-			if (Keyboard.GetState().IsKeyDown(Keys.Down))
-			{
-				camInitPos.Y -= camMovSpeed;
-			}
-			if (Keyboard.GetState().IsKeyDown(Keys.Left))
-			{
-				camInitPos.X += camMovSpeed;
-			}
-			if (Keyboard.GetState().IsKeyDown(Keys.Right))
-			{
-				camInitPos.X -= camMovSpeed;
-			}
-		}
-
 		public void FollowCharacter(Vector2 characterPos, Viewport v)
 		{
 			CamInitPos = characterPos - new Vector2(v.Width / 2, v.Height / 2) / scale;
-			CamInitPos = Vector2.Clamp(CamInitPos, Vector2.Zero, WorldBound / scale 
-						 - new Vector2(v.Width, v.Height) / scale);
+			CamInitPos = -Vector2.Clamp(CamInitPos, Vector2.Zero, WorldBound / scale
+									   - new Vector2(v.Width, v.Height) / scale);
 		}
 	}
 }

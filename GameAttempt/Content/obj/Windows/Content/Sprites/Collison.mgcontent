@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Alex/source/repos/GameAttempt/GameAttempt/Content/Sprites/Collison.png</SourceFile>
-  <SourceTime>2018-11-29T19:19:28.0399686+00:00</SourceTime>
-  <DestFile>C:/Users/Alex/source/repos/GameAttempt/GameAttempt/Content/bin/Windows/Content/Sprites/Collison.xnb</DestFile>
-  <DestTime>2018-11-29T19:26:51.9467881+00:00</DestTime>
+  <SourceFile>C:/Users/Alex/Documents/GitHub/GameAttempt/GameAttempt/Content/Sprites/Collison.png</SourceFile>
+  <SourceTime>2018-12-10T13:54:26.2998488+00:00</SourceTime>
+  <DestFile>C:/Users/Alex/Documents/GitHub/GameAttempt/GameAttempt/Content/bin/Windows/Content/Sprites/Collison.xnb</DestFile>
+  <DestTime>2018-12-10T13:55:32.8431643+00:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-09-23T22:55:52+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
