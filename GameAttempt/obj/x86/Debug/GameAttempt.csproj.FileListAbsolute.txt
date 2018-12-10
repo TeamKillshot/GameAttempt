@@ -169,7 +169,6 @@ C:\Users\Alex\Documents\GitHub\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Con
 C:\Users\Alex\Documents\GitHub\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Content\Sprites\tank tiles 64 x 64.xnb
 C:\Users\Alex\Documents\GitHub\GameAttempt\GameAttempt\bin\Windows\x86\Debug\GameAttempt.exe
 C:\Users\Alex\Documents\GitHub\GameAttempt\GameAttempt\bin\Windows\x86\Debug\GameAttempt.pdb
-C:\Users\Alex\Documents\GitHub\GameAttempt\GameAttempt\bin\Windows\x86\Debug\FarseerPhysics MonoGame.dll
 C:\Users\Alex\Documents\GitHub\GameAttempt\GameAttempt\bin\Windows\x86\Debug\MonoGame.Framework.dll
 C:\Users\Alex\Documents\GitHub\GameAttempt\GameAttempt\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll
 C:\Users\Alex\Documents\GitHub\GameAttempt\GameAttempt\bin\Windows\x86\Debug\SharpDX.dll
@@ -178,7 +177,6 @@ C:\Users\Alex\Documents\GitHub\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Sha
 C:\Users\Alex\Documents\GitHub\GameAttempt\GameAttempt\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll
 C:\Users\Alex\Documents\GitHub\GameAttempt\GameAttempt\bin\Windows\x86\Debug\SharpDX.Direct2D1.dll
 C:\Users\Alex\Documents\GitHub\GameAttempt\GameAttempt\bin\Windows\x86\Debug\SharpDX.XInput.dll
-C:\Users\Alex\Documents\GitHub\GameAttempt\GameAttempt\bin\Windows\x86\Debug\FarseerPhysics MonoGame.pdb
 C:\Users\Alex\Documents\GitHub\GameAttempt\GameAttempt\bin\Windows\x86\Debug\MonoGame.Framework.xml
 C:\Users\Alex\Documents\GitHub\GameAttempt\GameAttempt\bin\Windows\x86\Debug\SharpDX.MediaFoundation.xml
 C:\Users\Alex\Documents\GitHub\GameAttempt\GameAttempt\bin\Windows\x86\Debug\SharpDX.xml
