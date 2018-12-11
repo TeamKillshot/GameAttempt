@@ -89,7 +89,6 @@ C:\Users\thats\OneDrive\Documents\College Stuff\Project300\GameAttempt1\GameAtte
 C:\Users\thats\OneDrive\Documents\College Stuff\Project300\GameAttempt1\GameAttempt\GameAttempt\obj\x86\Debug\GameAttempt.pdb
 C:\Users\thats\OneDrive\Documents\College Stuff\Project300\GameAttempt1\GameAttempt\GameAttempt\obj\x86\Debug\GameAttempt.csprojAssemblyReference.cache
 C:\Users\thats\OneDrive\Documents\College Stuff\Project300\GameAttempt1\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Content\Sprites\CharacterSpriteSheet.xnb
-C:\Users\thats\Source\Repos\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Content\Sprites\CharacterSpriteSheet.xnb
 C:\Users\Alex\source\repos\GameAttempt\GameAttempt\obj\x86\Debug\GameAttempt.csprojAssemblyReference.cache
 C:\Users\Alex\source\repos\GameAttempt\GameAttempt\obj\x86\Debug\GameAttempt.csproj.CoreCompileInputs.cache
 C:\Users\Alex\source\repos\GameAttempt\GameAttempt\obj\x86\Debug\GameAttempt.exe
@@ -187,3 +186,7 @@ C:\Users\Alex\Documents\GitHub\GameAttempt\GameAttempt\obj\x86\Debug\GameAttempt
 C:\Users\Alex\Documents\GitHub\GameAttempt\GameAttempt\obj\x86\Debug\GameAttempt.exe
 C:\Users\Alex\Documents\GitHub\GameAttempt\GameAttempt\obj\x86\Debug\GameAttempt.pdb
 C:\Users\thats\source\repos\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Content\Sprites\AlienBoss.xnb
+C:\Users\thats\source\repos\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Content\Sprites\MelvinSprSheet.xnb
+C:\Users\thats\source\repos\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Content\Sprites\MikeSprSheet.xnb
+C:\Users\thats\source\repos\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Content\Sprites\SpikeSprSheet.xnb
+C:\Users\thats\source\repos\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Content\Sprites\SprSheet.xnb

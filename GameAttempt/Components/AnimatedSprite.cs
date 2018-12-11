@@ -47,7 +47,7 @@ namespace Components
 
         //the source of our image within the sprite sheet to draw
         public Rectangle sourceRectangle;
-        SpriteEffects _effect;
+        public SpriteEffects _effect;
 
         public Rectangle BoundingRect;
 
@@ -73,7 +73,7 @@ namespace Components
 
         public override void Update(GameTime gametime)
         {
-            timer += (float)gametime.ElapsedGameTime.Milliseconds;
+            timer += (float)gametime.ElapsedGameTime.Milliseconds / (float)1.5;
 
             //if the timer is greater then the time between frames, then animate
             if (timer > mililsecondsBetweenFrames)
@@ -130,7 +130,7 @@ namespace Components
             //draw the sprite , specify the postion and source for the image withtin the sprite sheet
             spriteBatch.Begin();
             // Changed to allow for sprite effect
-            spriteBatch.Draw(spriteImage, position, sourceRectangle, Color.White, 0f, Vector2.Zero, 1.0f, _effect, 0f);
+            // spriteBatch.Draw(spriteImage, position, sourceRectangle, Color.White, 0f, Vector2.Zero, 1.0f, _effect, 0f);
             spriteBatch.End();
         }
 

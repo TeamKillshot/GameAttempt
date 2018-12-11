@@ -17,6 +17,7 @@ namespace GameAttempt.Components
         AnimatedSprite Sprite { get; set; }
         public int ID { get; set; }
 		SpriteEffects s;
+
         //variables
         int speed;
         TRender tiles;
@@ -25,7 +26,6 @@ namespace GameAttempt.Components
         Vector2 Position;
         Rectangle Bounds;
         Camera camera;
-        bool isFalling = true;
 
         //PlayerStates
         public enum PlayerState { STILL, WALK, JUMP, FALL }
@@ -43,7 +43,7 @@ namespace GameAttempt.Components
             Position = new Vector2(200, 300);
             speed = 9;
             ID = (int)index;
-            _current = PlayerState.STILL;
+            _current = PlayerState.FALL;
 
             camera = new Camera(Vector2.Zero,
             new Vector2(tiles.tileMap.GetLength(1) * tiles.tsWidth,
@@ -66,25 +66,25 @@ namespace GameAttempt.Components
 
                 case PlayerIndex.One:
                     Sprite = new AnimatedSprite(Game, 
-                        Game.Content.Load<Texture2D>("Sprites/CharacterSpriteSheet"), Position, 11, Bounds);
+                        Game.Content.Load<Texture2D>("Sprites/SprSheet"), Position, 11, Bounds);
                     ID = 1;
                     break;
 
                 case PlayerIndex.Two:
                     Sprite = new AnimatedSprite(Game,
-                        Game.Content.Load<Texture2D>("Sprites/CharacterSpriteSheet"), Position, 11, Bounds);
+                        Game.Content.Load<Texture2D>("Sprites/SprSheet"), Position, 11, Bounds);
                     ID = 2;
                     break;
 
                 case PlayerIndex.Three:
                     Sprite = new AnimatedSprite(Game,
-                        Game.Content.Load<Texture2D>("Sprites/CharacterSpriteSheet"), Position, 11, Bounds);
+                        Game.Content.Load<Texture2D>("Sprites/SprSheet"), Position, 11, Bounds);
                     ID = 3;
                     break;
 
                 case PlayerIndex.Four:
                     Sprite = new AnimatedSprite(Game,
-                        Game.Content.Load<Texture2D>("Sprites/CharacterSpriteSheet"), Position, 11, Bounds);
+                        Game.Content.Load<Texture2D>("Sprites/SprSheet"), Position, 11, Bounds);
                     ID = 4;
                     break;
             }
@@ -94,59 +94,106 @@ namespace GameAttempt.Components
 
         public override void Update(GameTime gameTime)
         {
-            camera.FollowCharacter(Position, GraphicsDevice.Viewport);
-
-            if (InputManager.IsKeyHeld(Keys.A))
-            {
-				s = SpriteEffects.None;
-                Position -= new Vector2(9, 0);
-                _current = PlayerState.WALK;
-            }
-            if (InputManager.IsKeyHeld(Keys.D))
-            {
-				s = SpriteEffects.FlipHorizontally;
-                Position += new Vector2(9, 0);
-                _current = PlayerState.WALK;
-            }
-            if(InputManager.IsKeyPressed(Keys.W) && isFalling == false
-                || InputManager.IsButtonPressed(Buttons.A) && isFalling == false)
-            {
-                Position -= new Vector2(0, 125);
-                _current = PlayerState.JUMP;
-                isFalling = true;
-            }
-
-            if(isFalling)
-            {
-                _current = PlayerState.FALL;
-            }
-
-            previousPosition = Position;
-
+            camera.FollowCharacter(Sprite.position, GraphicsDevice.Viewport);
+            previousPosition = Sprite.position;
+            Bounds = new Rectangle((int)Sprite.position.X, (int)Sprite.position.Y, 128, 128);
             GamePadState state = GamePad.GetState(index);
-            Position.X += state.ThumbSticks.Left.X * speed;
 
-            Bounds = new Rectangle((int)Position.X, (int)Position.Y, 128, 128);
+            bool isJumping = false;
+            bool isFalling = false;
+            bool isColliding = false;
 
-            if(isFalling) Position.Y += 4;
-
-            foreach (Collider c in tiles.collisons)
+            switch (_current)
             {
-                Rectangle FloorRec = c.collider;
+                case PlayerState.FALL:
 
-                if (Bounds.Intersects(FloorRec))
-                {
-                    Position = previousPosition;
-                    c.collisionColor = Color.Red;
-                    isFalling = false;
+                    if (!isFalling)
+                    {
+                        Sprite.position.Y += 3;
+                        isFalling = true;
+                        Sprite.position.X += state.ThumbSticks.Left.X * speed;
+                    }
+
+                    if (isFalling)
+                    {
+                        foreach (Collider c in tiles.collisons)
+                        {
+                            Rectangle FloorRec = c.collider;
+
+                            if (Bounds.Intersects(FloorRec))
+                            {
+                                Sprite.position = previousPosition;
+                                isColliding = true;
+                                _current = PlayerState.STILL;
+                            }
+                            else
+                            {
+                                c.collisionColor = Color.White;
+                            }
+
+                            if (_current != PlayerState.FALL) break;
+                        }
+                    }
+
                     break;
-                }
-                else
-                {
-                    c.collisionColor = Color.White;
-                }
-                if (!isFalling) break;
+
+                case PlayerState.STILL:
+                    if (state.ThumbSticks.Left.X != 0)
+                    {
+                        _current = PlayerState.WALK;
+                    }
+                    if(InputManager.IsButtonPressed(Buttons.A))
+                    {
+                        _current = PlayerState.JUMP;
+                    }
+                    break;
+
+                case PlayerState.WALK:
+                    Sprite.position.X += state.ThumbSticks.Left.X * speed;
+                    if (state.ThumbSticks.Left.X > 0)
+                    {
+                        s = SpriteEffects.FlipHorizontally;
+                    }
+                    else s = SpriteEffects.None;
+                    if (InputManager.IsButtonPressed(Buttons.A) && !isJumping && !isFalling)
+                    {
+                        _current = PlayerState.JUMP;
+                    }
+                    if(!isColliding)
+                    {
+                        _current = PlayerState.FALL;
+                    }
+                    else if (isColliding)
+                    {
+                        _current = PlayerState.STILL;
+                    }
+                    break;
+
+                case PlayerState.JUMP:
+                    if(!isJumping)
+                    {
+                        Sprite.position.Y -= 100;
+                        isJumping = true;
+                        _current = PlayerState.FALL;
+                    }
+                    break;
             }
+
+            #region Uneeded?
+    //        if (InputManager.IsKeyHeld(Keys.A))
+    //        {
+				//s = SpriteEffects.None;
+    //            Position -= new Vector2(9, 0);
+    //            _current = PlayerState.WALK;
+    //        }
+    //        if (InputManager.IsKeyHeld(Keys.D))
+    //        {
+				//s = SpriteEffects.FlipHorizontally;
+    //            Position += new Vector2(9, 0);
+    //            _current = PlayerState.WALK;
+    //        }
+
+            #endregion
 
             base.Update(gameTime);
         }
@@ -160,16 +207,16 @@ namespace GameAttempt.Components
             switch(_current)
             {
                 case PlayerState.STILL:
-                    spriteBatch.Draw(Sprite.SpriteImage, Sprite.BoundingRect, Color.White);
+                    spriteBatch.Draw(Sprite.SpriteImage, Sprite.BoundingRect, Sprite.sourceRectangle, Color.White, 0f, Vector2.Zero, s, 0f);
                     break;
                 case PlayerState.JUMP:
-                    spriteBatch.Draw(Sprite.SpriteImage, Bounds, Color.White);
+                    spriteBatch.Draw(Sprite.SpriteImage, Sprite.BoundingRect, Sprite.sourceRectangle, Color.White, 0f, Vector2.Zero, s, 0f);
                     break;
                 case PlayerState.WALK:
-                    spriteBatch.Draw(Sprite.SpriteImage, Bounds, Color.White);
+                    spriteBatch.Draw(Sprite.SpriteImage, Sprite.BoundingRect, Sprite.sourceRectangle, Color.White, 0f, Vector2.Zero, s, 0f);
                     break;
                 case PlayerState.FALL:
-                    spriteBatch.Draw(Sprite.SpriteImage, Bounds, Color.White);
+                    spriteBatch.Draw(Sprite.SpriteImage, Sprite.BoundingRect, Sprite.sourceRectangle, Color.White, 0f, Vector2.Zero, s, 0f);
                     break;
             }
             spriteBatch.End();
