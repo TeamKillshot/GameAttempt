@@ -123,7 +123,6 @@ namespace GameAttempt
 		public override void Update(GameTime gameTime)
 		{
 			Camera Cam = Game.Services.GetService<Camera>();
-			Cam.MoveCamera();
 			base.Update(gameTime);
 		}
 

@@ -12,7 +12,8 @@ namespace GameAttempt
     {
         public Rectangle collider;
         Texture2D collisonImage;
-        bool visible = false;
+        bool visible = true;
+        public Color collisionColor = Color.White;
 
         public Collider(Texture2D Image, Vector2 startPos, Vector2 size)
         {
@@ -23,7 +24,7 @@ namespace GameAttempt
         public void draw(SpriteBatch spriteBatch)
         {
             if(visible)
-			spriteBatch.Draw(collisonImage, collider, Color.White);
+			spriteBatch.Draw(collisonImage, collider, collisionColor);
 		}
 	}
 }

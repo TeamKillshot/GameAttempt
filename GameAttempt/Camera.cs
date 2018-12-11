@@ -54,26 +54,6 @@ namespace GameAttempt
 			View = view;
 		}
 
-		public void MoveCamera()
-		{
-			if (Keyboard.GetState().IsKeyDown(Keys.Up))
-			{
-				camInitPos.Y += camMovSpeed;
-			}
-			if (Keyboard.GetState().IsKeyDown(Keys.Down))
-			{
-				camInitPos.Y -= camMovSpeed;
-			}
-			if (Keyboard.GetState().IsKeyDown(Keys.Left))
-			{
-				camInitPos.X += camMovSpeed;
-			}
-			if (Keyboard.GetState().IsKeyDown(Keys.Right))
-			{
-				camInitPos.X -= camMovSpeed;
-			}
-		}
-
 		public void FollowCharacter(Vector2 characterPos, Viewport v)
 		{
 			CamInitPos = characterPos - new Vector2(v.Width / 2, v.Height / 2) / scale;

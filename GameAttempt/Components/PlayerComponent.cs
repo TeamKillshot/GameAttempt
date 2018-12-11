@@ -28,7 +28,7 @@ namespace GameAttempt.Components
         bool isFalling = true;
 
         //PlayerStates
-        public enum PlayerState { STILL, WALK, JUMP }
+        public enum PlayerState { STILL, WALK, JUMP, FALL }
         PlayerState _current;
 
         public PlayerComponent(Game game): base(game)
@@ -59,6 +59,11 @@ namespace GameAttempt.Components
         {
             switch(index)
             {
+                default:
+                    Sprite = new AnimatedSprite(Game,
+                        Game.Content.Load<Texture2D>("Sprites/CharacterSpriteSheet"), Position, 11, Bounds);
+                    break;
+
                 case PlayerIndex.One:
                     Sprite = new AnimatedSprite(Game, 
                         Game.Content.Load<Texture2D>("Sprites/CharacterSpriteSheet"), Position, 11, Bounds);
@@ -89,6 +94,8 @@ namespace GameAttempt.Components
 
         public override void Update(GameTime gameTime)
         {
+            camera.FollowCharacter(Position, GraphicsDevice.Viewport);
+
             if (InputManager.IsKeyHeld(Keys.A))
             {
 				s = SpriteEffects.None;
@@ -109,12 +116,19 @@ namespace GameAttempt.Components
                 isFalling = true;
             }
 
+            if(isFalling)
+            {
+                _current = PlayerState.FALL;
+            }
+
+            previousPosition = Position;
+
             GamePadState state = GamePad.GetState(index);
             Position.X += state.ThumbSticks.Left.X * speed;
 
-            Bounds = new Rectangle((int)Position.X, (int)Position.Y, 64, 64);
-            previousPosition = Position;
-            Position.Y += 4;
+            Bounds = new Rectangle((int)Position.X, (int)Position.Y, 128, 128);
+
+            if(isFalling) Position.Y += 4;
 
             foreach (Collider c in tiles.collisons)
             {
@@ -123,8 +137,15 @@ namespace GameAttempt.Components
                 if (Bounds.Intersects(FloorRec))
                 {
                     Position = previousPosition;
+                    c.collisionColor = Color.Red;
                     isFalling = false;
+                    break;
                 }
+                else
+                {
+                    c.collisionColor = Color.White;
+                }
+                if (!isFalling) break;
             }
 
             base.Update(gameTime);
@@ -135,8 +156,22 @@ namespace GameAttempt.Components
             SpriteBatch spriteBatch = Game.Services.GetService<SpriteBatch>();
             Camera Cam = Game.Services.GetService<Camera>();
 
-            spriteBatch.Begin(/*SpriteSortMode.Immediate, BlendState.AlphaBlend, null, null, null, null, Cam.CurrentCamTranslation*/);
-            spriteBatch.Draw(Sprite.SpriteImage, Bounds, Color.White);
+            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, null, null, null, null, Cam.CurrentCamTranslation);
+            switch(_current)
+            {
+                case PlayerState.STILL:
+                    spriteBatch.Draw(Sprite.SpriteImage, Sprite.BoundingRect, Color.White);
+                    break;
+                case PlayerState.JUMP:
+                    spriteBatch.Draw(Sprite.SpriteImage, Bounds, Color.White);
+                    break;
+                case PlayerState.WALK:
+                    spriteBatch.Draw(Sprite.SpriteImage, Bounds, Color.White);
+                    break;
+                case PlayerState.FALL:
+                    spriteBatch.Draw(Sprite.SpriteImage, Bounds, Color.White);
+                    break;
+            }
             spriteBatch.End();
 
             base.Draw(gameTime);
