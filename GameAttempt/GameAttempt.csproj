@@ -67,8 +67,11 @@
     <Content Include="Content\Sprites\AlienBoss.png" />
     <Content Include="Content\Sprites\CharacterSpriteSheet.png" />
     <Content Include="Content\Sprites\Collison.png" />
+    <Content Include="Content\Sprites\MelvinSprSheet.png" />
     <Content Include="Content\Sprites\Mike.png" />
+    <Content Include="Content\Sprites\MikeSprSheet.png" />
     <Content Include="Content\Sprites\Spike.png" />
+    <Content Include="Content\Sprites\SpikeSprSheet.png" />
     <Content Include="Content\Sprites\TileSheetOne.png" />
     <Content Include="Icon.ico" />
   </ItemGroup>
