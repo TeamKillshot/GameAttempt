@@ -65,7 +65,7 @@ namespace GameAttempt.Components
                     break;
 
                 case PlayerIndex.Three:
-                    Sprite = Game.Content.Load<Texture2D>("Sprites/Floor");
+                    Sprite = Game.Content.Load<Texture2D>("Sprites/AlienBoss");
                     ID = 3;
                     break;
 

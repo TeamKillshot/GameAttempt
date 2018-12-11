@@ -66,12 +66,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Sprites\AlienBoss.png" />
     <Content Include="Content\Sprites\CharacterSpriteSheet.png" />
     <Content Include="Content\Sprites\Collison.png" />
-    <Content Include="Content\Sprites\Floor.png" />
     <Content Include="Content\Sprites\Mike.png" />
     <Content Include="Content\Sprites\Spike.png" />
-    <Content Include="Content\Sprites\tank tiles 64 x 64.png" />
     <Content Include="Content\Sprites\TileSheetOne.png" />
     <Content Include="Icon.ico" />
   </ItemGroup>
