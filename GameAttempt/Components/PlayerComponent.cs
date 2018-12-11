@@ -17,6 +17,7 @@ namespace GameAttempt.Components
         AnimatedSprite Sprite { get; set; }
         public int ID { get; set; }
 		SpriteEffects s;
+
         //variables
         int speed;
         TRender tiles;
@@ -25,11 +26,11 @@ namespace GameAttempt.Components
         Vector2 Position;
         Rectangle Bounds;
         Camera camera;
-        bool isFalling = true;
 
         //PlayerStates
         public enum PlayerState { STILL, WALK, JUMP, FALL }
-        PlayerState _current;
+        PlayerState _current, _previousState;
+        bool walkRight, walkLeft;
 
         public PlayerComponent(Game game): base(game)
         {
@@ -43,7 +44,8 @@ namespace GameAttempt.Components
             Position = new Vector2(200, 300);
             speed = 9;
             ID = (int)index;
-            _current = PlayerState.STILL;
+            _current = PlayerState.FALL;
+            _previousState = PlayerState.STILL;
 
             camera = new Camera(Vector2.Zero,
             new Vector2(tiles.tileMap.GetLength(1) * tiles.tsWidth,
@@ -95,7 +97,57 @@ namespace GameAttempt.Components
         public override void Update(GameTime gameTime)
         {
             camera.FollowCharacter(Position, GraphicsDevice.Viewport);
+            previousPosition = Position;
+            GamePadState state = GamePad.GetState(index);
 
+            switch (_current)
+            {
+                case PlayerState.FALL:
+                    Position.Y += 3;
+
+                    foreach (Collider c in tiles.collisons)
+                    {
+                        Rectangle FloorRec = c.collider;
+
+                        if (Bounds.Intersects(FloorRec))
+                        {
+                            Position = previousPosition;
+                            c.collisionColor = Color.Red;
+                            _current = PlayerState.STILL;
+                            break;
+                        }
+                        else
+                        {
+                            c.collisionColor = Color.White;
+                            _current = PlayerState.FALL;
+                        }
+
+                        if (_current != PlayerState.FALL) break;
+                    }
+
+                    break;
+
+                case PlayerState.STILL:
+
+                    break;
+
+                case PlayerState.WALK:
+
+                    Position.X += state.ThumbSticks.Left.X * speed;
+
+                    if(state.ThumbSticks.Left.X <= 0)
+                    {
+                        walkLeft = true;
+                    }
+
+
+                    break;
+
+                case PlayerState.JUMP:
+                    break;
+            }
+
+            #region Uneeded?
             if (InputManager.IsKeyHeld(Keys.A))
             {
 				s = SpriteEffects.None;
@@ -108,45 +160,18 @@ namespace GameAttempt.Components
                 Position += new Vector2(9, 0);
                 _current = PlayerState.WALK;
             }
-            if(InputManager.IsKeyPressed(Keys.W) && isFalling == false
-                || InputManager.IsButtonPressed(Buttons.A) && isFalling == false)
+            if(InputManager.IsKeyPressed(Keys.W)
+                || InputManager.IsButtonPressed(Buttons.A))
             {
                 Position -= new Vector2(0, 125);
                 _current = PlayerState.JUMP;
-                isFalling = true;
             }
-
-            if(isFalling)
-            {
-                _current = PlayerState.FALL;
-            }
-
-            previousPosition = Position;
-
-            GamePadState state = GamePad.GetState(index);
-            Position.X += state.ThumbSticks.Left.X * speed;
 
             Bounds = new Rectangle((int)Position.X, (int)Position.Y, 128, 128);
 
-            if(isFalling) Position.Y += 4;
+            Position.Y += 4;
 
-            foreach (Collider c in tiles.collisons)
-            {
-                Rectangle FloorRec = c.collider;
-
-                if (Bounds.Intersects(FloorRec))
-                {
-                    Position = previousPosition;
-                    c.collisionColor = Color.Red;
-                    isFalling = false;
-                    break;
-                }
-                else
-                {
-                    c.collisionColor = Color.White;
-                }
-                if (!isFalling) break;
-            }
+            #endregion
 
             base.Update(gameTime);
         }
