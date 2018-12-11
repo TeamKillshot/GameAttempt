@@ -7,3 +7,5 @@
 /.vs/GameAttempt/v15/Server/sqlite3/storage.ide-wal
 /.vs/GameAttempt/v15/Server/sqlite3/storage.ide
 /.vs/GameAttempt/v15/Server/.suo
+*.ide-wal
+.vs/GameAttempt/v15/Server/sqlite3/storage.ide-wal
