@@ -12,5 +12,8 @@
     <File>C:/Users/thats/source/repos/GameAttempt/GameAttempt/Content/Sprites/SpikeSprSheet.png</File>
     <File>C:/Users/thats/source/repos/GameAttempt/GameAttempt/Content/Sprites/MelvinSprSheet.png</File>
     <File>C:/Users/thats/source/repos/GameAttempt/GameAttempt/Content/Sprites/SprSheet.png</File>
+    <File>C:/Users/thats/source/repos/GameAttempt/GameAttempt/Content/Audio/GreenGrave_mp3.mp3</File>
+    <File>C:/Users/thats/source/repos/GameAttempt/GameAttempt/Content/Audio/jump_snd.wav</File>
+    <File>C:/Users/thats/source/repos/GameAttempt/GameAttempt/Content/Audio/step_snd.wav</File>
   </SourceFiles>
 </SourceFileCollection>

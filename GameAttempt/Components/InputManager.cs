@@ -73,6 +73,12 @@ namespace Components
             
         }
 
+        public static bool IsButtonReleased(Buttons buttonToCheck)
+        {
+            if (CurrentPadState.IsButtonUp(buttonToCheck)) return true;
+            else return false;
+        }
+
         public static bool IsButtonHeld(Buttons buttonToCheck)
         {
             if (currentPadState.IsButtonDown(buttonToCheck))

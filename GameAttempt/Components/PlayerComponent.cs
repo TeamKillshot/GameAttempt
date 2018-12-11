@@ -1,5 +1,6 @@
 ﻿using Components;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
@@ -26,6 +27,9 @@ namespace GameAttempt.Components
         Vector2 Position;
         Rectangle Bounds;
         Camera camera;
+
+        SoundEffect sndJump, sndWalk, sndWalk2;
+        SoundEffectInstance sndJumpIns, sndWalkIns, sndWalkIns2;
 
         //PlayerStates
         public enum PlayerState { STILL, WALK, JUMP, FALL }
@@ -57,7 +61,20 @@ namespace GameAttempt.Components
 
         protected override void LoadContent()
         {
-            switch(index)
+            //Audio Load
+            sndJump = Game.Content.Load<SoundEffect>("Audio/jump_snd");
+            sndJumpIns = sndJump.CreateInstance();
+            sndJumpIns.Volume = 1.0f;
+
+            sndWalk = Game.Content.Load<SoundEffect>("Audio/step_snd");
+            sndWalkIns = sndWalk.CreateInstance();
+            sndWalkIns.Volume = 1.0f;
+
+            sndWalk2 = Game.Content.Load<SoundEffect>("Audio/step_snd");
+            sndWalkIns2 = sndWalk2.CreateInstance();
+            sndWalkIns2.Volume = 1.0f;
+
+            switch (index)
             {
                 default:
                     Sprite = new AnimatedSprite(Game,
@@ -109,7 +126,7 @@ namespace GameAttempt.Components
 
                     if (!isFalling)
                     {
-                        Sprite.position.Y += 3;
+                        Sprite.position.Y += 5;
                         isFalling = true;
                         Sprite.position.X += state.ThumbSticks.Left.X * speed;
                     }
@@ -138,6 +155,10 @@ namespace GameAttempt.Components
                     break;
 
                 case PlayerState.STILL:
+                    if(sndWalkIns.State == SoundState.Playing)
+                    {
+                        sndWalkIns.Stop();
+                    }
                     if (state.ThumbSticks.Left.X != 0)
                     {
                         _current = PlayerState.WALK;
@@ -150,6 +171,15 @@ namespace GameAttempt.Components
 
                 case PlayerState.WALK:
                     Sprite.position.X += state.ThumbSticks.Left.X * speed;
+                    if(sndWalkIns.State != SoundState.Playing)
+                    {
+                        sndWalkIns.Play();
+                        //sndWalkIns.IsLooped = true;
+                    }
+                    if (state.ThumbSticks.Left.X == 0)
+                    {
+                        _current = PlayerState.STILL;
+                    }
                     if (state.ThumbSticks.Left.X > 0)
                     {
                         s = SpriteEffects.FlipHorizontally;
@@ -159,10 +189,10 @@ namespace GameAttempt.Components
                     {
                         _current = PlayerState.JUMP;
                     }
-                    if(!isColliding)
-                    {
-                        _current = PlayerState.FALL;
-                    }
+                    //if(!isColliding)
+                    //{
+                    //    _current = PlayerState.FALL;
+                    //}
                     else if (isColliding)
                     {
                         _current = PlayerState.STILL;
@@ -174,6 +204,16 @@ namespace GameAttempt.Components
                     {
                         Sprite.position.Y -= 100;
                         isJumping = true;
+
+                        if(sndJumpIns.State != SoundState.Playing)
+                        {
+                            sndJumpIns.Play();
+                            sndJump.Play();
+                        }
+                        else if(InputManager.IsButtonReleased(Buttons.A))
+                        {
+                            sndJumpIns.Stop();
+                        }
                         _current = PlayerState.FALL;
                     }
                     break;

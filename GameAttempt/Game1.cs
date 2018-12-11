@@ -3,6 +3,7 @@ using GameAttempt.Components;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 using System.Collections.Generic;
 using TileEngine;
 
@@ -15,6 +16,8 @@ namespace GameAttempt
 
         TRender tiles;
         PlayerComponent player;
+
+        Song bkgrnd;
 
         public Game1()
         {
@@ -40,6 +43,13 @@ namespace GameAttempt
 
         protected override void LoadContent()
         {
+            bkgrnd = Content.Load<Song>("Audio/GreenGrave_mp3");
+
+            if (bkgrnd != null)
+            {
+                MediaPlayer.Play(bkgrnd);
+                MediaPlayer.IsRepeating = true;
+            }
 
             #region Load Menu Textures and Scenes
 

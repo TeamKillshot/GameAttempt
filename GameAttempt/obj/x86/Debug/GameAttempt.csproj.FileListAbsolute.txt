@@ -190,3 +190,7 @@ C:\Users\thats\source\repos\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Conten
 C:\Users\thats\source\repos\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Content\Sprites\MikeSprSheet.xnb
 C:\Users\thats\source\repos\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Content\Sprites\SpikeSprSheet.xnb
 C:\Users\thats\source\repos\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Content\Sprites\SprSheet.xnb
+C:\Users\thats\source\repos\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Content\Audio\GreenGrave_mp3.wma
+C:\Users\thats\source\repos\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Content\Audio\GreenGrave_mp3.xnb
+C:\Users\thats\source\repos\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Content\Audio\jump_snd.xnb
+C:\Users\thats\source\repos\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Content\Audio\step_snd.xnb
