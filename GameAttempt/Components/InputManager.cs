@@ -10,8 +10,6 @@ namespace Components
 {
     public sealed class InputManager : GameComponent
     {
-        private static PlayerIndex _current;
-
         private static GamePadState previousPadState;
         private static GamePadState currentPadState;
 

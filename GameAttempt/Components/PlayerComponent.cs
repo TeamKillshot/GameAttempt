@@ -14,18 +14,22 @@ namespace GameAttempt.Components
     {
         //Properties
         Vector2 previousPosition { get; set; }
-        Texture2D Sprite { get; set; }
+        AnimatedSprite Sprite { get; set; }
         public int ID { get; set; }
-
+		SpriteEffects s;
         //variables
         int speed;
         TRender tiles;
         PlayerIndex index;
+        Texture2D PlayerRect;
         Vector2 Position;
         Rectangle Bounds;
         Camera camera;
-        bool isCollided = false;
         bool isFalling = true;
+
+        //PlayerStates
+        public enum PlayerState { STILL, WALK, JUMP }
+        PlayerState _current;
 
         public PlayerComponent(Game game): base(game)
         {
@@ -39,14 +43,15 @@ namespace GameAttempt.Components
             Position = new Vector2(200, 300);
             speed = 9;
             ID = (int)index;
+            _current = PlayerState.STILL;
 
             camera = new Camera(Vector2.Zero,
-							    new Vector2(tiles.tileMap.GetLength(1) * tiles.tsWidth,
-								tiles.tileMap.GetLength(0) * tiles.tsHeight),
-								 GraphicsDevice.Viewport);
+            new Vector2(tiles.tileMap.GetLength(1) * tiles.tsWidth,
+             tiles.tileMap.GetLength(0) * tiles.tsHeight),
+                GraphicsDevice.Viewport);
 
             Game.Services.AddService<Camera>(camera);
-
+			Game.Services.AddService<SpriteEffects>(s);
             base.Initialize();
         }
 
@@ -55,89 +60,74 @@ namespace GameAttempt.Components
             switch(index)
             {
                 case PlayerIndex.One:
-                    Sprite = Game.Content.Load<Texture2D>("Sprites/Mike");
+                    Sprite = new AnimatedSprite(Game, 
+                        Game.Content.Load<Texture2D>("Sprites/CharacterSpriteSheet"), Position, 11, Bounds);
                     ID = 1;
                     break;
 
                 case PlayerIndex.Two:
-                    Sprite = Game.Content.Load<Texture2D>("Sprites/Spike");
+                    Sprite = new AnimatedSprite(Game,
+                        Game.Content.Load<Texture2D>("Sprites/CharacterSpriteSheet"), Position, 11, Bounds);
                     ID = 2;
                     break;
 
                 case PlayerIndex.Three:
-                    Sprite = Game.Content.Load<Texture2D>("Sprites/Floor");
+                    Sprite = new AnimatedSprite(Game,
+                        Game.Content.Load<Texture2D>("Sprites/CharacterSpriteSheet"), Position, 11, Bounds);
                     ID = 3;
                     break;
 
                 case PlayerIndex.Four:
-                    Sprite = Game.Content.Load<Texture2D>("Sprites/Collision");
+                    Sprite = new AnimatedSprite(Game,
+                        Game.Content.Load<Texture2D>("Sprites/CharacterSpriteSheet"), Position, 11, Bounds);
                     ID = 4;
                     break;
             }
+
+            PlayerRect = Game.Content.Load<Texture2D>("Sprites/Collison");
         }
 
         public override void Update(GameTime gameTime)
         {
-			camera.FollowCharacter(Position, GraphicsDevice.Viewport);
-			if (InputManager.IsKeyHeld(Keys.A))
+            if (InputManager.IsKeyHeld(Keys.A))
             {
+				s = SpriteEffects.None;
                 Position -= new Vector2(9, 0);
+                _current = PlayerState.WALK;
             }
             if (InputManager.IsKeyHeld(Keys.D))
             {
+				s = SpriteEffects.FlipHorizontally;
                 Position += new Vector2(9, 0);
+                _current = PlayerState.WALK;
             }
-            if(InputManager.IsKeyPressed(Keys.W) || InputManager.IsButtonPressed(Buttons.A) && isFalling == false)
+            if(InputManager.IsKeyPressed(Keys.W) && isFalling == false
+                || InputManager.IsButtonPressed(Buttons.A) && isFalling == false)
             {
                 Position -= new Vector2(0, 125);
+                _current = PlayerState.JUMP;
                 isFalling = true;
             }
 
             GamePadState state = GamePad.GetState(index);
             Position.X += state.ThumbSticks.Left.X * speed;
 
-            Bounds = new Rectangle(Position.ToPoint(), new Point(64, 64));
+            Bounds = new Rectangle((int)Position.X, (int)Position.Y, 64, 64);
             previousPosition = Position;
             Position.Y += 4;
 
-            //PlayerMove();
-
             foreach (Collider c in tiles.collisons)
             {
-                if (Bounds.Intersects(c.collider) && isCollided == false)
+                Rectangle FloorRec = c.collider;
+
+                if (Bounds.Intersects(FloorRec))
                 {
                     Position = previousPosition;
                     isFalling = false;
-
-                    if(Bounds.Left >= c.collider.Right)
-                    {
-                        Position = previousPosition;
-                    }
-                    else if(Bounds.Right <= c.collider.Left)
-                    {
-                        Position = previousPosition;
-                    }
                 }
             }
 
             base.Update(gameTime);
-        }
-
-        public void PlayerMove()
-        {
-            if (this != null /*&& player.isConnected == true*/)
-            {
-                Bounds = new Rectangle(Position.ToPoint(), new Point(64, 64));
-
-                GamePadState state = GamePad.GetState(index);
-                Position *= (state.ThumbSticks.Left);
-
-                if (InputManager.IsButtonPressed(Buttons.A))
-                {
-                    //player.Body.ApplyLinearImpulse(player.Jump);
-                }
-            }
-			
         }
 
         public override void Draw(GameTime gameTime)
@@ -145,8 +135,8 @@ namespace GameAttempt.Components
             SpriteBatch spriteBatch = Game.Services.GetService<SpriteBatch>();
             Camera Cam = Game.Services.GetService<Camera>();
 
-            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, null, null, null, null, Cam.CurrentCamTranslation);
-            spriteBatch.Draw(Sprite, Bounds, Color.White);
+            spriteBatch.Begin(/*SpriteSortMode.Immediate, BlendState.AlphaBlend, null, null, null, null, Cam.CurrentCamTranslation*/);
+            spriteBatch.Draw(Sprite.SpriteImage, Bounds, Color.White);
             spriteBatch.End();
 
             base.Draw(gameTime);

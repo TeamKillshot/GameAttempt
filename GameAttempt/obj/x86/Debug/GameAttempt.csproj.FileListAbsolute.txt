@@ -33,7 +33,6 @@ C:\Users\thats\Source\Repos\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Conten
 C:\Users\thats\Source\Repos\GameAttempt\GameAttempt\bin\Windows\x86\Debug\Content\Sprites\Spike.xnb
 C:\Users\thats\Source\Repos\GameAttempt\GameAttempt\bin\Windows\x86\Debug\GameAttempt.exe
 C:\Users\thats\Source\Repos\GameAttempt\GameAttempt\bin\Windows\x86\Debug\GameAttempt.pdb
-C:\Users\thats\Source\Repos\GameAttempt\GameAttempt\bin\Windows\x86\Debug\FarseerPhysics MonoGame.dll
 C:\Users\thats\Source\Repos\GameAttempt\GameAttempt\bin\Windows\x86\Debug\MonoGame.Framework.dll
 C:\Users\thats\Source\Repos\GameAttempt\GameAttempt\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll
 C:\Users\thats\Source\Repos\GameAttempt\GameAttempt\bin\Windows\x86\Debug\SharpDX.dll
@@ -43,7 +42,6 @@ C:\Users\thats\Source\Repos\GameAttempt\GameAttempt\bin\Windows\x86\Debug\SharpD
 C:\Users\thats\Source\Repos\GameAttempt\GameAttempt\bin\Windows\x86\Debug\SharpDX.Direct2D1.dll
 C:\Users\thats\Source\Repos\GameAttempt\GameAttempt\bin\Windows\x86\Debug\SharpDX.XInput.dll
 C:\Users\thats\Source\Repos\GameAttempt\GameAttempt\bin\Windows\x86\Debug\SharpDX.Direct3D9.dll
-C:\Users\thats\Source\Repos\GameAttempt\GameAttempt\bin\Windows\x86\Debug\FarseerPhysics MonoGame.pdb
 C:\Users\thats\Source\Repos\GameAttempt\GameAttempt\bin\Windows\x86\Debug\MonoGame.Framework.xml
 C:\Users\thats\Source\Repos\GameAttempt\GameAttempt\bin\Windows\x86\Debug\SharpDX.MediaFoundation.xml
 C:\Users\thats\Source\Repos\GameAttempt\GameAttempt\bin\Windows\x86\Debug\SharpDX.xml

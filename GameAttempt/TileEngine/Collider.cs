@@ -20,14 +20,9 @@ namespace GameAttempt
             collider = new Rectangle((int)startPos.X, (int)startPos.Y, (int)size.X, (int)size.Y);
         }
 
-        public Rectangle GetCollidingRectangle()
-        {
-            return collider;
-        }
-
         public void draw(SpriteBatch spriteBatch)
         {
-            if (visible)
+            if(visible)
 			spriteBatch.Draw(collisonImage, collider, Color.White);
 		}
 	}
